@@ -143,13 +143,28 @@
       text-align: center;
       color: #FFFFFF !important;
       border-radius: 26px;
-      padding: 26px 36px; /* Nền to hơn nhiều về cả chiều cao và chiều rộng */
-      letter-spacing: 0.01em;
+      padding: 28px 36px; /* Nền to hơn nhiều về cả chiều cao và chiều rộng */
+      letter-spacing: 0.015em;
+      line-height: 1.55 !important; /* Tăng khoảng cách giữa các dòng của tiêu đề cực kỳ thoáng đãng */
       position: relative;
       overflow: hidden;
       background-size: 240% 240%;
       animation: bannerShimmer 9s ease infinite;
       transition: transform 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+      .themed-heading-banner {
+        line-height: 1.6 !important;
+        padding: 32px 44px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .themed-heading-banner {
+        line-height: 1.65 !important;
+        padding: 36px 52px;
+      }
     }
 
     /* Hiệu ứng chùm tia sáng lướt qua nền động */
@@ -733,13 +748,13 @@
           <div class="cover-star w-1.5 h-1.5 bottom-1/3 right-1/5" style="animation: starTwinkle 3.5s ease-in-out infinite 0.5s;"></div>
 
           <!-- PHẦN 1: KHỐI TEXT TIÊU ĐỀ CANH GIỮA TOÀN DIỆN, TUYỆT ĐỐI KHÔNG BỊ CHỒNG DẤU (LINE-HEIGHT & PADDING RỘNG RÃI) -->
-          <div class="relative z-10 w-full max-w-4xl mx-auto pt-1 sm:pt-3 md:pt-4">
-            <h1 class="font-heading tracking-normal flex flex-col items-center justify-center gap-3.5 sm:gap-5 md:gap-6 text-center">
+          <div class="relative z-10 w-full max-w-4xl mx-auto pt-3 sm:pt-6 md:pt-8 lg:pt-9">
+            <h1 class="font-heading tracking-normal flex flex-col items-center justify-center gap-3.5 sm:gap-5 md:gap-6 text-center mt-1 sm:mt-2 md:mt-3">
               
-              <!-- Dòng 1: DANH MỤC VẬT PHẨM NGUY HIỂM (Tăng khoảng cách dòng leading-normal md:leading-relaxed, padding trên dưới đủ chỗ cho dấu) -->
-              <span class="block py-1.5 sm:py-2.5 md:py-3 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] leading-relaxed sm:leading-normal md:leading-relaxed">
-                <span class="bg-gradient-to-r from-red-400 via-rose-300 to-amber-300 bg-clip-text text-transparent mr-2 sm:mr-3 inline-block">DANH MỤC</span>
-                <span class="inline-block text-white">VẬT PHẨM NGUY HIỂM</span>
+              <!-- Dòng 1: DANH MỤC VẬT PHẨM NGUY HIỂM (Tách thành 2 dòng rõ rệt với khoảng cách thoáng đãng, không đè dấu) -->
+              <span class="block py-1 sm:py-2 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] leading-tight">
+                <span class="bg-gradient-to-r from-red-400 via-rose-300 to-amber-300 bg-clip-text text-transparent block mb-2 sm:mb-3 md:mb-4.5">DANH MỤC</span>
+                <span class="block text-white mt-1 sm:mt-2 md:mt-3 leading-snug sm:leading-normal">VẬT PHẨM NGUY HIỂM</span>
               </span>
 
               <!-- Dòng 2: MỚI NHẤT (Cho to hơn hẳn, thiết kế nhãn 3D viền neon nổi bật rực rỡ) -->
