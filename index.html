@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- ============================================================== -->
+  <!-- PHẦN 1: SEO, META TAGS & TIÊU CHUẨN TRUYỀN THÔNG SỐ           -->
+  <!-- ============================================================== -->
+  <title>Infographic An Toàn Hàng Không | Cục Quản Lý Xuất Nhập Cảnh</title>
+  <meta name="description" content="Infographic tương tác tuyên truyền Danh mục vật phẩm nguy hiểm cấm, hạn chế mang vào khu vực hạn chế, mang lên tàu bay theo Công văn số 25655/QLXNC-TTANHKQG ngày 21/9/2026 của Cục Quản lý xuất nhập cảnh." />
+  <meta name="keywords" content="an toàn hàng không, vật phẩm nguy hiểm, cấm mang lên máy bay, pin lithium, Cục Quản lý xuất nhập cảnh, 25655/QLXNC-TTANHKQG" />
+  <meta name="author" content="Cục Quản lý xuất nhập cảnh" />
+
+  <!-- OPEN GRAPH & TWITTER CARDS -->
+  <meta property="og:title" content="Infographic An Toàn Hàng Không - Cục Quản Lý Xuất Nhập Cảnh" />
+  <meta property="og:description" content="Hướng dẫn chi tiết về các nhóm vật phẩm cấm, hạn chế mang lên tàu bay giúp hành khách có chuyến bay an toàn, văn minh." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- GOOGLE FONTS: Be Vietnam Pro, Montserrat, Space Grotesk (font tiêu đề hiện đại, công nghệ & an ninh) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- TAILWIND CSS CDN DÀNH CHO TỆP HTML ĐỘC LẬP DUY NHẤT -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'system-ui', '-apple-system', 'sans-serif'],
+            heading: ['"Montserrat"', '"Be Vietnam Pro"', 'sans-serif'],
+            display: ['"Space Grotesk"', '"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            sky: {
+              50: '#F0F7FF',
+              100: '#E0F2FE',
+              200: '#BAE6FD',
+              300: '#7DD3FC',
+              400: '#38BDF8',
+              500: '#0EA5E9',
+              600: '#0284C7',
+              700: '#0369A1',
+              800: '#075985',
+              900: '#0C4A6E',
+              950: '#082F49',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ============================================================== -->
+  <!-- PHẦN 2: THƯ VIỆN FRAMER MOTION (MOTION) QUA CDN CHO KINETIC    -->
+  <!-- ============================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.17/dist/motion.js"></script>
+
+  <!-- ============================================================== -->
+  <!-- PHẦN 3: CSS TÙY BIẾN, BẢNG MÀU GRADIENT VÀ KINETIC TYPOGRAPHY -->
+  <!-- ============================================================== -->
+  <style>
+    /* Tone màu nền theo nen.png: Trắng kem sáng sang trọng với lưới grid kỹ thuật nhẹ nhàng */
+    body {
+      background-color: #F8FAFC;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+        radial-gradient(ellipse 90% 70% at 50% 0%, #FFFFFF 0%, #F1F5F9 55%, #E2E8F0 100%);
+      background-size: 56px 56px, 56px 56px, 100% 100%;
+      background-attachment: fixed;
+      color: #1E293B;
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+      font-size: 1.15rem; /* Cỡ chữ lớn hơn 2 size chuẩn */
+      line-height: 1.85; /* Khoảng cách dòng rộng rãi, dễ đọc */
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Phong cách tiêu đề Banner nổi bật: Nền to hơn, size chữ to hơn 1 size, hiệu ứng động nền chuyển động sang trọng */
+    @keyframes bannerShimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes lightSweep {
+      0% {
+        transform: translateX(-120%) rotate(25deg);
+      }
+      100% {
+        transform: translateX(250%) rotate(25deg);
+      }
+    }
+
+    @keyframes pulseGlowRed {
+      0%, 100% {
+        box-shadow: 0 20px 45px -8px rgba(220, 38, 38, 0.5), 0 0 25px rgba(239, 68, 68, 0.35);
+      }
+      50% {
+        box-shadow: 0 25px 60px -5px rgba(220, 38, 38, 0.75), 0 0 45px rgba(239, 68, 68, 0.6);
+      }
+    }
+
+    @keyframes pulseGlowAmber {
+      0%, 100% {
+        box-shadow: 0 20px 45px -8px rgba(217, 119, 6, 0.5), 0 0 25px rgba(245, 158, 11, 0.35);
+      }
+      50% {
+        box-shadow: 0 25px 60px -5px rgba(217, 119, 6, 0.75), 0 0 45px rgba(245, 158, 11, 0.6);
+      }
+    }
+
+    @keyframes pulseGlowEmerald {
+      0%, 100% {
+        box-shadow: 0 20px 45px -8px rgba(5, 150, 105, 0.5), 0 0 25px rgba(16, 185, 129, 0.35);
+      }
+      50% {
+        box-shadow: 0 25px 60px -5px rgba(5, 150, 105, 0.75), 0 0 45px rgba(16, 185, 129, 0.6);
+      }
+    }
+
+    @keyframes pulseGlowBlue {
+      0%, 100% {
+        box-shadow: 0 20px 45px -8px rgba(29, 78, 216, 0.5), 0 0 25px rgba(59, 130, 246, 0.35);
+      }
+      50% {
+        box-shadow: 0 25px 60px -5px rgba(29, 78, 216, 0.75), 0 0 45px rgba(59, 130, 246, 0.6);
+      }
+    }
+
+    .themed-heading-banner {
+      font-family: 'Montserrat', 'Be Vietnam Pro', system-ui, sans-serif;
+      text-align: center;
+      color: #FFFFFF !important;
+      border-radius: 26px;
+      padding: 26px 36px; /* Nền to hơn nhiều về cả chiều cao và chiều rộng */
+      letter-spacing: 0.01em;
+      position: relative;
+      overflow: hidden;
+      background-size: 240% 240%;
+      animation: bannerShimmer 9s ease infinite;
+      transition: transform 0.3s ease;
+    }
+
+    /* Hiệu ứng chùm tia sáng lướt qua nền động */
+    .themed-heading-banner::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 50%;
+      height: 240%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.28) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none;
+      animation: lightSweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* Tiêu đề Mục 1: Đỏ An Ninh Đậm Nổi Bật (Nền động + Hào quang thở) */
+    .heading-banner-red {
+      background: linear-gradient(135deg, #DC2626 0%, #EF4444 30%, #B91C1C 65%, #7F1D1D 100%);
+      border: 2px solid #FCA5A5;
+      animation: bannerShimmer 8s ease infinite, pulseGlowRed 4s ease-in-out infinite;
+    }
+
+    /* Tiêu đề Mục 2: Cam / Vàng Cảnh Báo Đậm Nổi Bật (Nền động + Hào quang thở) */
+    .heading-banner-amber {
+      background: linear-gradient(135deg, #EA580C 0%, #F59E0B 30%, #D97706 65%, #92400E 100%);
+      border: 2px solid #FDE68A;
+      animation: bannerShimmer 8s ease infinite, pulseGlowAmber 4s ease-in-out infinite;
+    }
+
+    /* Tiêu đề Mục 3: Xanh Lá Đậm Nổi Bật (Nền động + Hào quang thở) */
+    .heading-banner-emerald {
+      background: linear-gradient(135deg, #059669 0%, #10B981 30%, #047857 65%, #064E3B 100%);
+      border: 2px solid #A7F3D0;
+      animation: bannerShimmer 8s ease infinite, pulseGlowEmerald 4s ease-in-out infinite;
+    }
+
+    /* Tiêu đề Mục 4 & Kết luận: Xanh Dương / Navy Đậm Nổi Bật (Nền động + Hào quang thở) */
+    .heading-banner-blue {
+      background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 30%, #1E40AF 65%, #172554 100%);
+      border: 2px solid #BFDBFE;
+      animation: bannerShimmer 8s ease infinite, pulseGlowBlue 4s ease-in-out infinite;
+    }
+
+    /* ============================================================== */
+    /* BÌA TỈ LỆ 16:9 TECH AVIATION CYAN & NAVY: TƯƠNG THÍCH HOÀN HẢO DESKTOP & MOBI */
+    /* ============================================================== */
+    .hero-cover-16-9 {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px -12px rgba(2, 132, 199, 0.45), 0 0 50px rgba(14, 165, 233, 0.25);
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      background: radial-gradient(circle at 50% 25%, #034f85 0%, #022d52 40%, #021a32 75%, #010e1c 100%);
+      background-size: 140% 140%;
+      animation: coverGradientShift 14s ease-in-out infinite;
+      /* Trên Mobile: chiều cao tự co giãn thoải mái, không bị bóp nghẹt */
+      min-height: auto;
+      padding: 1.5rem 1rem 1.25rem 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-cover-16-9 {
+        border-radius: 24px;
+        padding: 2.25rem 1.75rem 2rem 1.75rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-cover-16-9 {
+        aspect-ratio: 16 / 9;
+        min-height: unset; /* Chuẩn xác 16:9 trên Desktop */
+        border-radius: 28px;
+        padding: 2.75rem 2.5rem 2.25rem 2.5rem;
+      }
+    }
+
+    @keyframes coverGradientShift {
+      0% { background-position: 50% 20%; }
+      50% { background-position: 50% 40%; }
+      100% { background-position: 50% 20%; }
+    }
+
+    /* Hoạt ảnh máy bay bay ngang qua mượt mà kèm vệt khói và quầng sáng (Flyby Airplane Animation) */
+    @keyframes airplaneFlyAcross {
+      0% {
+        transform: translateX(-120%) translateY(14px) rotate(-1.5deg);
+        opacity: 0;
+      }
+      8% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateX(10%) translateY(-6px) rotate(0deg);
+        opacity: 1;
+      }
+      92% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(130%) translateY(-22px) rotate(1.5deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes cloudDriftSlow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes contrailFlow {
+      0% { opacity: 0.7; transform: scaleX(0.96); }
+      50% { opacity: 1; transform: scaleX(1); }
+      100% { opacity: 0.7; transform: scaleX(0.96); }
+    }
+
+    @keyframes airplaneBeaconBlink {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 8px #ef4444); }
+    }
+
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.25; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    .cover-star {
+      position: absolute;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 10px #38bdf8, 0 0 20px #0ea5e9;
+      pointer-events: none;
+    }
+
+    /* Lưới toạ độ bay hàng không tinh tế */
+    .cover-flight-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Dải tia sáng quét toàn bìa */
+    .cover-sweep-light {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        115deg,
+        transparent 38%,
+        rgba(56, 189, 248, 0.04) 47%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(56, 189, 248, 0.04) 53%,
+        transparent 62%
+      );
+      pointer-events: none;
+      animation: coverLightSweep 7s ease-in-out infinite;
+    }
+
+    @keyframes coverLightSweep {
+      0% { transform: translateX(-60%) translateY(-30%); }
+      100% { transform: translateX(60%) translateY(30%); }
+    }
+
+    /* Hiệu ứng hiển thị mượt mà khi cuộn trang cho các thẻ nội dung */
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Kinetic Typography: Định dạng khối từ vựng chuyển động */
+    .kinetic-heading {
+      perspective: 1000px;
+    }
+
+    .kinetic-word {
+      display: inline-block;
+      white-space: pre;
+      transform-origin: center bottom;
+      will-change: transform, opacity, filter;
+      opacity: 0;
+      transform: translateY(28px) scale(0.94);
+      filter: blur(4px);
+    }
+
+    /* Đường kẻ viền kinetic trang nhã tự bung mở dưới tiêu đề khi hoàn thành */
+    .kinetic-line-accent {
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284C7, #38BDF8, #60A5FA);
+      border-radius: 9999px;
+      transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-top: 12px;
+    }
+    .kinetic-line-accent.is-active {
+      width: 80px;
+    }
+
+    /* Hiệu ứng rung lắc nhẹ khi di chuột qua thẻ (Gentle Hover Shake Animation) */
+    @keyframes card-hover-shake {
+      0% { transform: translateY(-4px) rotate(0deg); }
+      20% { transform: translateY(-4px) rotate(-1.2deg) translateX(-2px); }
+      40% { transform: translateY(-4px) rotate(1.2deg) translateX(2px); }
+      60% { transform: translateY(-4px) rotate(-0.7deg) translateX(-1px); }
+      80% { transform: translateY(-4px) rotate(0.7deg) translateX(1px); }
+      100% { transform: translateY(-4px) rotate(0deg); }
+    }
+
+    /* Thẻ Infographic hiện đại: Kính mờ sáng sang trọng, rung lắc nhẹ khi hover */
+    .infographic-box {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(14, 165, 233, 0.22);
+      box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.08), 0 4px 10px -2px rgba(15, 39, 68, 0.03);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      will-change: transform;
+    }
+    .infographic-box:hover {
+      animation: card-hover-shake 0.5s ease-in-out;
+      box-shadow: 0 18px 30px -6px rgba(2, 132, 199, 0.18), 0 0 0 2px #38BDF8;
+      background: #FFFFFF;
+    }
+
+    /* Thẻ cảnh báo nhóm cấm: Đỏ an ninh trang nhã trên nền sáng, rung lắc nhẹ khi hover */
+    .danger-box {
+      background: linear-gradient(135deg, rgba(254, 242, 242, 0.96), rgba(255, 255, 255, 0.96));
+      border: 2px solid #FCA5A5;
+      box-shadow: 0 8px 20px -4px rgba(239, 68, 68, 0.1);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform;
+    }
+    .danger-box:hover {
+      animation: card-hover-shake 0.5s ease-in-out;
+      border-color: #EF4444;
+      box-shadow: 0 16px 28px -6px rgba(239, 68, 68, 0.22);
+    }
+
+    /* ============================================================== */
+    /* CẤU TRÚC 2 CỘT TƯƠNG TÁC CHO PHẦN 1: NHÓM VẬT PHẨM BỊ CẤM       */
+    /* ============================================================== */
+    .banned-nav-btn {
+      background: #FFFFFF !important;
+      border: 2px solid #E2E8F0;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.07);
+    }
+    .banned-nav-btn .banned-icon-svg {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      color: #DC2626;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(1.15); /* Tăng scale icon bên trong thêm 15% */
+    }
+    .banned-nav-btn:hover {
+      border-color: #F87171;
+      background: #FEF2F2 !important;
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 10px 22px -4px rgba(220, 38, 38, 0.22);
+    }
+    .banned-nav-btn:hover .banned-icon-svg {
+      transform: scale(1.28);
+    }
+    /* Khi được chọn: Nền đỏ nổi bật, icon trắng tinh, bóng đỏ đậm */
+    .banned-nav-btn.is-active {
+      background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%) !important;
+      border-color: #991B1B !important;
+      box-shadow: 0 16px 32px -4px rgba(220, 38, 38, 0.55), 0 0 0 4px rgba(239, 68, 68, 0.38) !important;
+      transform: translateY(-3px) scale(1.08);
+    }
+    .banned-nav-btn.is-active .banned-icon-svg {
+      color: #FFFFFF !important;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+      transform: scale(1.22);
+    }
+    .banned-nav-btn.is-active .lazy-icon-box {
+      background: transparent !important;
+    }
+
+    .banned-content-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.35s ease, background 0.35s ease, border-left-color 0.35s ease;
+      cursor: pointer;
+      border-left: 6px solid transparent;
+    }
+    .banned-content-card.is-highlighted {
+      border-color: #EF4444 !important;
+      border-left: 8px solid #DC2626 !important;
+      background: linear-gradient(135deg, #FEF2F2 0%, #FFFFFF 100%) !important;
+      box-shadow: 0 20px 35px -6px rgba(220, 38, 38, 0.28), 0 0 0 3px rgba(239, 68, 68, 0.35) !important;
+      transform: translateY(-2px) scale(1.02);
+      opacity: 1 !important;
+    }
+    .banned-content-card:not(.is-highlighted) {
+      opacity: 0.72;
+    }
+    .banned-content-card:not(.is-highlighted):hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================== */
+    /* CẤU TRÚC RADIAL CIRCULAR INFOGRAPHIC CHO MỤC 2 (DIỆN HẠN CHẾ)   */
+    /* ============================================================== */
+    .radial-hub-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      min-height: 750px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .radial-orbit-ring {
+      position: absolute;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      border: 2.5px dashed rgba(245, 158, 11, 0.4);
+      pointer-events: none;
+    }
+    /* VÒNG TRÒN TO Ở GIỮA TO HƠN, TONE VÀNG CAM CẢNH BÁO ĐẬM ĐÀ, ĐỘ TƯƠNG PHẢN CAO VỚI CHỮ TRẮNG */
+    .radial-center-circle {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 25%, #D97706 0%, #B45309 45%, #92400E 80%, #78350F 100%);
+      color: #FFFFFF;
+      border: 3.5px solid #FDE68A;
+      box-shadow: 0 24px 50px -10px rgba(120, 53, 15, 0.65), 0 0 0 6px rgba(217, 119, 6, 0.45), inset 0 3px 12px rgba(254, 243, 199, 0.35), inset 0 -8px 18px rgba(69, 26, 3, 0.6);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 36px 32px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .radial-center-circle:hover {
+      transform: scale(1.04);
+      box-shadow: 0 28px 60px -8px rgba(120, 53, 15, 0.75), 0 0 0 8px rgba(245, 158, 11, 0.5);
+    }
+    /* Hiệu ứng xung nhịp nhẹ nhàng cho vòng tròn trung tâm khi đổi nội dung */
+    .radial-center-circle.is-updating {
+      transform: scale(0.96);
+      box-shadow: 0 16px 32px -8px rgba(217, 119, 6, 0.4), 0 0 0 3px rgba(251, 191, 36, 0.25);
+    }
+    /* Hiệu ứng phai mờ (fade out) và hiển thị (fade in) nội dung bên trong */
+    .radial-content-fade {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      filter: blur(0px);
+      transition: opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1), transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), filter 0.26s ease;
+      will-change: opacity, transform, filter;
+    }
+    .radial-content-fade.is-fading-out {
+      opacity: 0;
+      transform: scale(0.92) translateY(8px);
+      filter: blur(4px);
+    }
+    .radial-satellite-node {
+      position: absolute;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #F59E0B;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 22px -4px rgba(217, 119, 6, 0.45);
+      border: 3.5px solid #FFFFFF;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 20;
+    }
+    .radial-satellite-node:hover {
+      transform: scale(1.22);
+      background: #D97706;
+      box-shadow: 0 16px 30px -4px rgba(217, 119, 6, 0.65);
+    }
+    .radial-satellite-node.is-active {
+      background: #EA580C;
+      border-color: #FEF3C7;
+      box-shadow: 0 16px 32px -2px rgba(234, 88, 12, 0.7), 0 0 0 5px rgba(249, 115, 22, 0.45);
+      transform: scale(1.28);
+    }
+    .radial-satellite-label {
+      position: absolute;
+      width: 140px;
+      text-align: center;
+      font-size: 0.95rem; /* Tăng hơn 1 size */
+      font-weight: 700;
+      color: #78350F;
+      line-height: 1.25;
+      pointer-events: none;
+      transition: color 0.25s ease;
+    }
+    .radial-satellite-node.is-active + .radial-satellite-label,
+    .radial-satellite-node:hover + .radial-satellite-label {
+      color: #C2410C;
+      font-weight: 800;
+    }
+
+    /* ============================================================== */
+    /* CẤU TRÚC 4 DẢI CHỮ NHẬT THEO TONE XANH LÁ (EMERALD / FOREST)  */
+    /* THIẾT KẾ TƯƠNG THÍCH MƯỢT MÀ GIỮA CÁC THIẾT BỊ                 */
+    /* ============================================================== */
+    .staggered-track {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .staggered-row {
+      display: grid;
+      grid-template-columns: 1fr 72px 1fr;
+      align-items: center;
+      position: relative;
+      margin-bottom: 22px;
+    }
+    @media (max-width: 767px) {
+      .staggered-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Thẻ bên trái và phải với tone màu xanh lá chủ đạo tươi sáng, an toàn */
+    .staggered-card-left {
+      grid-column: 1 / 2;
+      justify-self: end;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ECFDF5 0%, #A7F3D0 40%, #34D399 75%, #059669 100%);
+      color: #064E3B;
+      box-shadow: 0 14px 28px -4px rgba(5, 150, 105, 0.22);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .staggered-card-left:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 36px -4px rgba(5, 150, 105, 0.35);
+    }
+
+    .staggered-card-right {
+      grid-column: 3 / 4;
+      justify-self: start;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #F0FDF4 0%, #BBF7D0 40%, #4ADE80 75%, #16A34A 100%);
+      color: #064E3B;
+      box-shadow: 0 14px 28px -4px rgba(22, 163, 74, 0.22);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .staggered-card-right:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 36px -4px rgba(22, 163, 74, 0.35);
+    }
+
+    .staggered-center-icon {
+      grid-column: 2 / 3;
+      justify-self: center;
+      z-index: 10;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (max-width: 767px) {
+      .staggered-center-icon {
+        display: none; /* Trên màn hình nhỏ icon đã hiển thị tích hợp trong thẻ */
+      }
+    }
+    .staggered-row:hover .staggered-center-icon {
+      transform: scale(1.2);
+    }
+    .lazy-icon-box {
+      position: relative;
+      overflow: hidden;
+      contain: layout style paint;
+      will-change: opacity, transform;
+    }
+
+    /* Hiệu ứng Skeleton Shimmer nhẹ trước khi nạp icon trên mạng di động */
+    .lazy-icon-box:not(.is-loaded)::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      transform: translateX(-100%);
+      animation: lazy-skeleton-shimmer 1.4s ease-in-out infinite;
+    }
+
+    @keyframes lazy-skeleton-shimmer {
+      100% { transform: translateX(100%); }
+    }
+
+    .lazy-icon-box.is-loaded {
+      contain: none;
+    }
+
+    .lazy-icon-box .lazy-icon-content {
+      opacity: 0;
+      transform: scale(0.75);
+      transition: opacity 0.35s ease-out, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lazy-icon-box.is-loaded .lazy-icon-content {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Thanh tiến trình chuyến bay */
+    #flightProgressBar {
+      transition: width 0.15s ease-out;
+    }
+
+    /* Tối ưu hóa in ấn */
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11pt !important; }
+      header, .no-print, #searchBarPanel { display: none !important; }
+      .infographic-box, .danger-box { border: 1px solid #ccc !important; box-shadow: none !important; break-inside: avoid; }
+      .kinetic-word { opacity: 1 !important; transform: none !important; filter: none !important; }
+      .lazy-icon-box .lazy-icon-content { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+
+<body class="selection:bg-sky-500 selection:text-white">
+
+  <!-- ============================================================== -->
+  <!-- PHẦN 5: NỘI DUNG CHÍNH (INFOGRAPHIC TUÂN THỦ 100% NỘI DUNG)     -->
+  <!-- ============================================================== -->
+  <main id="top" class="flex-grow">
+
+    <!-- HERO SECTION: BÌA TỈ LỆ 16:9 HIỆU ỨNG ĐỘNG HIỆN ĐẠI -->
+    <section id="gioi-thieu" class="relative pt-6 pb-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <div class="max-w-6xl mx-auto reveal-card mb-12">
+
+        <!-- BÌA 16:9 TECH AVIATION CYAN & NAVY: TEXT CANH GIỮA KHÔNG LỖI DẤU + HOẠT ẢNH HÀNH KHÁCH QUA CỔNG HẢI QUAN -->
+        <div class="hero-cover-16-9 p-6 sm:p-8 md:p-10 lg:p-12 text-white relative flex flex-col justify-between items-center text-center">
+          
+          <!-- Các lớp đồ họa nền động kỹ thuật số công nghệ cao -->
+          <div class="cover-flight-grid"></div>
+          <div class="cover-sweep-light"></div>
+          
+          <!-- Điểm sáng tinh tú công nghệ phát sáng ngẫu nhiên -->
+          <div class="cover-star w-1.5 h-1.5 top-1/4 left-1/4" style="animation: starTwinkle 3s ease-in-out infinite;"></div>
+          <div class="cover-star w-2 h-2 top-8 right-1/4" style="animation: starTwinkle 4s ease-in-out infinite 1s;"></div>
+          <div class="cover-star w-1.5 h-1.5 bottom-1/3 right-1/5" style="animation: starTwinkle 3.5s ease-in-out infinite 0.5s;"></div>
+
+          <!-- PHẦN 1: KHỐI TEXT TIÊU ĐỀ CANH GIỮA TOÀN DIỆN, TUYỆT ĐỐI KHÔNG BỊ CHỒNG DẤU (LINE-HEIGHT & PADDING RỘNG RÃI) -->
+          <div class="relative z-10 w-full max-w-4xl mx-auto pt-1 sm:pt-3 md:pt-4">
+            <h1 class="font-heading tracking-normal flex flex-col items-center justify-center gap-3.5 sm:gap-5 md:gap-6 text-center">
+              
+              <!-- Dòng 1: DANH MỤC VẬT PHẨM NGUY HIỂM (Tăng khoảng cách dòng leading-normal md:leading-relaxed, padding trên dưới đủ chỗ cho dấu) -->
+              <span class="block py-1.5 sm:py-2.5 md:py-3 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] leading-relaxed sm:leading-normal md:leading-relaxed">
+                <span class="bg-gradient-to-r from-red-400 via-rose-300 to-amber-300 bg-clip-text text-transparent mr-2 sm:mr-3 inline-block">DANH MỤC</span>
+                <span class="inline-block text-white">VẬT PHẨM NGUY HIỂM</span>
+              </span>
+
+              <!-- Dòng 2: MỚI NHẤT (Cho to hơn hẳn, thiết kế nhãn 3D viền neon nổi bật rực rỡ) -->
+              <div class="my-0.5 sm:my-1">
+                <span class="inline-flex items-center justify-center px-5 sm:px-8 md:px-9 py-1.5 sm:py-2 md:py-2.5 rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 border-2 border-red-300 text-base sm:text-xl md:text-3xl font-black text-white tracking-widest uppercase shadow-xl shadow-red-900/60 ring-4 ring-red-500/30">
+                  MỚI NHẤT
+                </span>
+              </div>
+
+              <!-- Dòng 3: HÀNH KHÁCH ĐI MÁY BAY CẦN BIẾT (Canh giữa, khoảng cách thoáng đãng, sắc vàng hổ phách) -->
+              <span class="block py-1 sm:py-2 text-sm sm:text-xl md:text-3xl lg:text-4xl font-extrabold uppercase text-amber-300 tracking-wide drop-shadow-[0_2px_16px_rgba(245,158,11,0.65)] leading-relaxed md:leading-loose">
+                HÀNH KHÁCH ĐI MÁY BAY CẦN BIẾT
+              </span>
+
+            </h1>
+          </div>
+
+          <!-- PHẦN 2: HOẠT ẢNH ANIMATED PHÍA DƯỚI – MÁY BAY HÀNG KHÔNG HIỆN ĐẠI BAY NGANG QUA BẦU TRỜI -->
+          <div class="relative z-10 w-full max-w-4xl mx-auto h-[110px] sm:h-[135px] md:h-[155px] mt-2 flex items-center justify-center overflow-hidden rounded-2xl bg-sky-950/25 border border-sky-400/25 shadow-inner">
+            
+            <!-- Các tầng mây bồng bềnh lướt nhẹ phía dưới máy bay -->
+            <div class="absolute inset-x-0 bottom-0 h-10 flex opacity-25 pointer-events-none" style="animation: cloudDriftSlow 24s linear infinite; width: 200%;">
+              <div class="w-1/2 flex justify-around items-end">
+                <div class="w-24 h-6 bg-sky-300 rounded-full blur-md"></div>
+                <div class="w-36 h-8 bg-sky-200 rounded-full blur-lg"></div>
+                <div class="w-28 h-5 bg-sky-400 rounded-full blur-md"></div>
+                <div class="w-44 h-7 bg-sky-100 rounded-full blur-lg"></div>
+              </div>
+              <div class="w-1/2 flex justify-around items-end">
+                <div class="w-24 h-6 bg-sky-300 rounded-full blur-md"></div>
+                <div class="w-36 h-8 bg-sky-200 rounded-full blur-lg"></div>
+                <div class="w-28 h-5 bg-sky-400 rounded-full blur-md"></div>
+                <div class="w-44 h-7 bg-sky-100 rounded-full blur-lg"></div>
+              </div>
+            </div>
+
+            <!-- Vạch toạ độ đường bay radar an toàn (Safe Flight Corridor) -->
+            <div class="absolute inset-x-4 top-1/2 -translate-y-1/2 h-[1px] bg-gradient-to-r from-transparent via-sky-400/35 to-transparent pointer-events-none"></div>
+
+            <!-- HOẠT CẢNH: TÀU BAY THƯƠNG MẠI BAY NGANG QUA TỪ TRÁI SANG PHẢI (FLYING ACROSS ANIMATION) -->
+            <div class="relative z-20 w-full flex items-center" style="animation: airplaneFlyAcross 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;">
+              <div class="relative flex items-center drop-shadow-[0_4px_25px_rgba(56,189,248,0.7)]">
+                
+                <!-- 1. VỆT KHÓI PHẢN LỰC KÉP DÀI LƯỚT THEO ĐUÔI TÀU BAY (DUAL JET CONTRAILS) -->
+                <div class="flex flex-col gap-2.5 mr-[-2px] origin-right pointer-events-none" style="animation: contrailFlow 1.6s ease-in-out infinite;">
+                  <div class="w-36 sm:w-56 md:w-72 h-[3px] sm:h-[4px] rounded-l-full bg-gradient-to-l from-white/90 via-sky-300/60 to-transparent blur-[1px]"></div>
+                  <div class="w-32 sm:w-52 md:w-64 h-[2.5px] sm:h-[3.5px] rounded-l-full bg-gradient-to-l from-sky-200/80 via-sky-400/40 to-transparent blur-[1px] ml-4"></div>
+                </div>
+
+                <!-- 2. HÌNH ẢNH VECTOR MÁY BAY CHỞ KHÁCH BAY NGANG CỰC ĐẸP VÀ CHUẨN XÁC KHÍ ĐỘNG HỌC -->
+                <svg class="w-48 sm:w-64 md:w-76 h-20 sm:h-26 md:h-28 shrink-0" viewBox="0 0 260 100" fill="none">
+                  <defs>
+                    <!-- Gradient thân tàu bay bóng bẩy màu bạc ánh xanh công nghệ -->
+                    <linearGradient id="flybyBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#FFFFFF"/>
+                      <stop offset="35%" stop-color="#E0F2FE"/>
+                      <stop offset="70%" stop-color="#BAE6FD"/>
+                      <stop offset="100%" stop-color="#0284C7"/>
+                    </linearGradient>
+
+                    <!-- Gradient cánh tàu bay vuốt ngược -->
+                    <linearGradient id="flybyWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#BAE6FD"/>
+                      <stop offset="50%" stop-color="#38BDF8"/>
+                      <stop offset="100%" stop-color="#0369A1"/>
+                    </linearGradient>
+
+                    <!-- Gradient động cơ phản lực Turbofan -->
+                    <linearGradient id="flybyEngineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#E0F2FE"/>
+                      <stop offset="50%" stop-color="#7DD3FC"/>
+                      <stop offset="100%" stop-color="#075985"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Cánh xa (Cánh trái phía trên thân) -->
+                  <polygon points="105,42 135,16 155,16 138,42" fill="url(#flybyWingGrad)"/>
+                  <path d="M 155,16 L 157,11 L 153,13 Z" fill="#38BDF8"/> <!-- Winglet cánh xa -->
+
+                  <!-- Thân tàu bay thuôn dài khí động học với mũi vuốt thon tròn chuẩn Boeing / Airbus -->
+                  <path d="M 40,48 C 55,48 70,42 85,42 L 205,42 C 230,42 250,47 254,52 C 250,57 230,62 205,62 L 65,62 C 50,62 42,56 40,48 Z" fill="url(#flybyBodyGrad)"/>
+
+                  <!-- Kính buồng lái phi công mặt trước -->
+                  <path d="M 235,46 C 242,47 248,50 248,52 C 243,53 238,53 234,51 Z" fill="#022a45"/>
+
+                  <!-- Đuôi đứng tàu bay (Vertical Stabilizer) -->
+                  <polygon points="45,48 20,12 40,12 75,48" fill="url(#flybyWingGrad)"/>
+                  <!-- Lá cờ hiệu / dải nhấn nhận diện trên đuôi -->
+                  <polygon points="26,16 38,16 52,32 40,32" fill="#EF4444"/>
+
+                  <!-- Cánh thăng bằng ngang đuôi (Horizontal Stabilizer) -->
+                  <polygon points="40,52 24,64 36,64 58,54" fill="url(#flybyWingGrad)"/>
+
+                  <!-- Cánh gần (Cánh phải hướng người nhìn, vuốt nghiêng góc rộng) -->
+                  <polygon points="112,56 142,88 162,88 145,56" fill="url(#flybyWingGrad)"/>
+                  <path d="M 162,88 L 165,94 L 160,92 Z" fill="#38BDF8"/> <!-- Winglet cánh gần -->
+
+                  <!-- Động cơ Turbofan phản lực gắn dưới cánh gần -->
+                  <rect x="126" y="66" width="34" height="12" rx="6" fill="url(#flybyEngineGrad)"/>
+                  <ellipse cx="160" cy="72" rx="2.5" ry="5.5" fill="#022a45"/>
+                  <!-- Họng xả phản lực sau động cơ -->
+                  <ellipse cx="126" cy="72" rx="2" ry="4.5" fill="#38BDF8"/>
+
+                  <!-- Dãy cửa sổ khoang hành khách dọc thân sáng rực rỡ -->
+                  <g fill="#024e7a" opacity="0.85">
+                    <circle cx="95" cy="50" r="1.5"/>
+                    <circle cx="104" cy="50" r="1.5"/>
+                    <circle cx="113" cy="50" r="1.5"/>
+                    <circle cx="122" cy="50" r="1.5"/>
+                    <circle cx="131" cy="50" r="1.5"/>
+                    <circle cx="140" cy="50" r="1.5"/>
+                    <circle cx="149" cy="50" r="1.5"/>
+                    <circle cx="158" cy="50" r="1.5"/>
+                    <circle cx="167" cy="50" r="1.5"/>
+                    <circle cx="176" cy="50" r="1.5"/>
+                    <circle cx="185" cy="50" r="1.5"/>
+                    <circle cx="194" cy="50" r="1.5"/>
+                    <circle cx="203" cy="50" r="1.5"/>
+                    <circle cx="212" cy="50" r="1.5"/>
+                    <circle cx="221" cy="50" r="1.5"/>
+                  </g>
+
+                  <!-- Đèn chớp định vị chống va chạm màu đỏ nhấp nháy trên lưng và dưới bụng (Strobe Beacon) -->
+                  <circle cx="130" cy="41" r="2.5" fill="#EF4444" style="animation: airplaneBeaconBlink 1.2s ease-in-out infinite;"/>
+                  <circle cx="135" cy="63" r="2.5" fill="#EF4444" style="animation: airplaneBeaconBlink 1.2s ease-in-out infinite 0.6s;"/>
+                  
+                  <!-- Đèn xanh định vị đầu cánh (Navigation Light) -->
+                  <circle cx="163" cy="89" r="2" fill="#10B981" style="animation: starTwinkle 1.8s ease-in-out infinite;"/>
+                </svg>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- THÔNG ĐIỆP MỞ ĐẦU 100% NGUYÊN BẢN -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-sky-50 to-blue-50 border-2 border-sky-300 shadow-xl mt-8 mb-8 text-left sm:text-center">
+          <p class="text-xl sm:text-2xl font-black text-sky-900 mb-4 flex items-center justify-center gap-3">
+            <span>🛡️</span> An toàn hàng không bắt đầu từ những vật dụng hành khách mang theo!
+          </p>
+          <p class="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-4xl mx-auto">
+            Nhằm bảo đảm an ninh, an toàn cho hành khách, tổ bay, tàu bay và hoạt động khai thác hàng không dân dụng, pháp luật quy định cụ thể các loại vật phẩm nguy hiểm bị cấm hoặc hạn chế mang vào khu vực hạn chế, mang lên tàu bay.
+          </p>
+        </div>
+
+        <!-- CĂN CỨ VĂN BẢN XUẤT NHẬP CẢNH 100% NGUYÊN BẢN -->
+        <div class="text-base sm:text-lg text-slate-800 italic bg-white/95 border-l-8 border-sky-500 px-6 py-5 rounded-r-2xl shadow-md text-left max-w-4xl mx-auto leading-relaxed">
+          Theo Danh mục vật phẩm nguy hiểm cấm, hạn chế mang vào khu vực hạn chế, mang lên tàu bay ban hành kèm theo Công văn số 25655/QLXNC-TTANHKQG ngày 21-9-2026 của Cục Quản lý xuất nhập cảnh, hành khách cần đặc biệt lưu ý các nhóm vật phẩm sau:
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- PHẦN 1: NHÓM VẬT PHẨM BỊ CẤM (ĐỎ AN NINH TRÊN NỀN SÁNG)        -->
+    <!-- ============================================================== -->
+    <section id="nhom-cam" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-sky-200">
+      
+      <div class="max-w-5xl mx-auto mb-10 reveal-card text-center">
+        <!-- TIÊU ĐỀ H2 PHẦN 1: NỀN ĐỎ ĐẬM THEO MÀU CHỦ ĐỀ, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
+        <h2 class="themed-heading-banner heading-banner-red kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase">
+          NHÓM VẬT PHẨM BỊ CẤM MANG VÀO KHU VỰC HẠN CHẾ, MANG LÊN TÀU BAY
+        </h2>
+      </div>
+
+      <!-- TÁI CẤU TRÚC HIỂN THỊ 2 CỘT: CỘT 1 LÀ BIỂU TƯỢNG TO RÕ, CỘT 2 LÀ NỘI DUNG -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 max-w-6xl mx-auto items-start">
+
+        <!-- CỘT 1: CHỈ HIỂN THỊ ICON TO RÕ HƠN, KHÔNG CÓ CHỮ CHÚ THÍCH -->
+        <div class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-8 z-10">
+          <div class="p-4 sm:p-5 rounded-3xl bg-white/95 border-2 border-red-200 shadow-xl backdrop-blur-md">
+
+            <!-- Danh sách Icon to rõ (5 nhóm cấm) -->
+            <div class="grid grid-cols-5 lg:grid-cols-1 gap-3.5 sm:gap-4.5" id="bannedIconNav" role="tablist" aria-label="Biểu tượng nhóm vật phẩm cấm">
+              
+              <!-- Icon 1: Chất nổ, pháo (Mô tả thực tế quả bom nổ & ngòi lửa bốc khói sống động) -->
+              <button type="button" class="banned-nav-btn is-active group p-3.5 sm:p-4.5 rounded-2xl border-2 transition-all flex items-center justify-center aspect-square lg:aspect-auto lg:h-22 w-full shrink-0" data-target="1" role="tab" aria-selected="true" title="Chất nổ, pháo" aria-label="Chất nổ, pháo">
+                <div class="banned-icon-svg flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18" aria-hidden="true">
+                  <svg class="w-12 h-12 sm:w-14 sm:h-14" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                    <!-- Thân quả bom tròn kim loại có điểm phản quang -->
+                    <circle cx="21" cy="27" r="16" stroke-width="3" fill="currentColor" fill-opacity="0.12"/>
+                    <path d="M14 20 A 9 9 0 0 1 23 15" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Nắp kíp nổ -->
+                    <rect x="25" y="10" width="8" height="5" rx="1.5" transform="rotate(45 25 10)" stroke-width="2.5" fill="currentColor" fill-opacity="0.2"/>
+                    <!-- Dây cháy chậm uốn lượn -->
+                    <path d="M30 11 C 32 7, 36 8, 38 4" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Tia lửa nổ tung toé sống động -->
+                    <path d="M38 4 L 43 2 M 38 4 L 41 8 M 38 4 L 35 1 M 38 4 L 44 6" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </button>
+
+              <!-- Icon 2: Vũ khí, súng (Mô tả thực tế súng ngắn bán tự động tỉ mỉ chi tiết sống động) -->
+              <button type="button" class="banned-nav-btn group p-3.5 sm:p-4.5 rounded-2xl border-2 transition-all flex items-center justify-center aspect-square lg:aspect-auto lg:h-22 w-full shrink-0" data-target="2" role="tab" aria-selected="false" title="Vũ khí, súng" aria-label="Vũ khí, súng">
+                <div class="banned-icon-svg flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18" aria-hidden="true">
+                  <svg class="w-12 h-12 sm:w-14 sm:h-14" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                    <!-- Thân khóa nòng trên của súng (slide) có khía chống trượt -->
+                    <rect x="5" y="12" width="31" height="8" rx="2" stroke-width="3" fill="currentColor" fill-opacity="0.12"/>
+                    <line x1="28" y1="14" x2="28" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="31" y1="14" x2="31" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="34" y1="14" x2="34" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Nòng súng phía trước và đầu ngắm -->
+                    <path d="M5 14 H 3 V 18 H 5" stroke-width="2.5"/>
+                    <path d="M7 12 V 10 H 9 V 12" stroke-width="2"/>
+                    <!-- Cửa tống vỏ đạn -->
+                    <rect x="21" y="13" width="5" height="3" rx="0.5" stroke-width="1.8"/>
+                    <!-- Khung súng và báng cầm súng góc nghiêng công thái học -->
+                    <path d="M19 20 V 22 C 19 25, 23 25, 23 22 V 20 H 33 L 30 38 C 29.5 41, 23 42, 21 38 L 16 23 H 9 V 20 Z" stroke-width="2.8" stroke-linejoin="round" fill="currentColor" fill-opacity="0.12"/>
+                    <!-- Vành bảo vệ cò và cò súng -->
+                    <path d="M19 20 H 13 V 27 C 17 28, 19 25, 19 23" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M16 22 C 16 24, 18 24, 18 23" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Ốp báng súng có hoa văn rãnh bám tay -->
+                    <path d="M22 28 L 27 36" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M20 31 L 24 38" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </button>
+
+              <!-- Icon 3: Vật sắc, nhọn (Chính xác theo hình minh họa con dao vát nghiêng với cán bo tròn và đường ngăn cách) -->
+              <button type="button" class="banned-nav-btn group p-3.5 sm:p-4.5 rounded-2xl border-2 transition-all flex items-center justify-center aspect-square lg:aspect-auto lg:h-22 w-full shrink-0" data-target="3" role="tab" aria-selected="false" title="Vật sắc, nhọn" aria-label="Vật sắc, nhọn">
+                <div class="banned-icon-svg flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18" aria-hidden="true">
+                  <svg class="w-12 h-12 sm:w-14 sm:h-14" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                    <!-- Cán dao bo tròn đầu theo góc nghiêng 45 độ -->
+                    <path d="M 27.5 17.5 L 36.5 8.5 C 39.5 5.5, 43 9, 40 12 L 31 21" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="currentColor" fill-opacity="0.12"/>
+                    <!-- Vạch ngăn cách giữa chuôi cán và lưỡi dao -->
+                    <line x1="27.5" y1="17.5" x2="31" y2="21" stroke-width="3.5" stroke-linecap="round"/>
+                    <!-- Lưỡi dao sắc nhọn: sống dao thẳng vát nhọn xuống mũi, bụng dao cong tròn tạo lưỡi cắt -->
+                    <path d="M 27.5 17.5 L 5 40 C 13.5 41, 26 34.5, 33.5 23.5 Z" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="currentColor" fill-opacity="0.18"/>
+                  </svg>
+                </div>
+              </button>
+
+              <!-- Icon 4: Dụng cụ, búa lao động (Chính xác 100% theo hình minh họa chiếc búa cơ khí / thợ rèn) -->
+              <button type="button" class="banned-nav-btn group p-3.5 sm:p-4.5 rounded-2xl border-2 transition-all flex items-center justify-center aspect-square lg:aspect-auto lg:h-22 w-full shrink-0" data-target="4" role="tab" aria-selected="false" title="Dụng cụ, búa" aria-label="Dụng cụ, búa">
+                <div class="banned-icon-svg flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18" aria-hidden="true">
+                  <svg class="w-12 h-12 sm:w-14 sm:h-14" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                    <!-- 1. CÁN BÚA DÀI THẲNG NGHIÊNG 45 ĐỘ VỚI ĐẦU CHUÔI BO TRÒN BÁN NGUYỆT -->
+                    <path d="M 59 40 L 25 74 C 21 78, 27 84, 31 80 L 65 46 Z" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="currentColor" fill-opacity="0.12"/>
+                    
+                    <!-- 2. ĐẦU BÚA CƠ KHÍ THEO ĐÚNG HÌNH: ĐẦU ĐẬP VUÔNG PHẢI + ĐUÔI VÁT CHÉO HÌNH NÊM TRÁI -->
+                    <path d="
+                      M 61 38
+                      L 47 24
+                      L 66 16
+                      L 88 38
+                      L 77 49
+                      L 63 35
+                      Z"
+                      stroke-width="6.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="currentColor"
+                      fill-opacity="0.22"
+                    />
+                  </svg>
+                </div>
+              </button>
+
+              <!-- Icon 5: Chất hóa học, chất độc (Mô tả thực tế bình tam giác thí nghiệm bốc hơi độc & ký hiệu cảnh báo) -->
+              <button type="button" class="banned-nav-btn group p-3.5 sm:p-4.5 rounded-2xl border-2 transition-all flex items-center justify-center aspect-square lg:aspect-auto lg:h-22 w-full shrink-0" data-target="5" role="tab" aria-selected="false" title="Chất hóa học, độc" aria-label="Chất hóa học, độc">
+                <div class="banned-icon-svg flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18" aria-hidden="true">
+                  <svg class="w-12 h-12 sm:w-14 sm:h-14" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                    <!-- Bình nón hóa chất thí nghiệm (Erlenmeyer Flask) -->
+                    <path d="M20 7 H 28 M 22 7 V 14 L 10 37 C 8.5 40, 11 43, 14 43 H 34 C 37 43, 39.5 40, 38 37 L 26 14 V 7" stroke-width="2.8" stroke-linejoin="round"/>
+                    <!-- Mức chất lỏng hóa chất sủi bọt bên trong bình -->
+                    <path d="M13 32 Q 18 29, 24 32 T 35 32" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Bọt khí khí độc sủi lên -->
+                    <circle cx="18" cy="37" r="1.8" fill="currentColor"/>
+                    <circle cx="28" cy="36" r="2.2" fill="currentColor"/>
+                    <circle cx="23" cy="27" r="1.5" fill="currentColor"/>
+                    <!-- Luồng khói bốc lên từ miệng bình -->
+                    <path d="M21 4 C 20 2, 23 1, 24 0" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M26 5 C 28 3, 26 2, 28 0" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Biểu tượng cảnh báo nguy hiểm độc hại ở giữa thân bình -->
+                    <path d="M24 20 L 29 28 H 19 Z" stroke-width="2" fill="currentColor" fill-opacity="0.25"/>
+                    <circle cx="24" cy="26" r="0.8" fill="currentColor"/>
+                    <line x1="24" y1="22" x2="24" y2="24" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- CỘT 2: NỘI DUNG CHI TIẾT (BỎ CÁC SỐ, CÁC DIV KHÔNG CẦN THIẾT, BỎ ICON ĐẦU DÒNG P) -->
+        <div class="lg:col-span-8 xl:col-span-9 space-y-4">
+
+          <!-- THẺ 1: Chất nổ, pháo -->
+          <div id="banned-card-1" class="danger-box banned-content-card searchable-item is-highlighted p-6 sm:p-7 rounded-3xl reveal-card" data-index="1" data-keywords="chất nổ vật liệu nổ chất cháy thiết bị gây cháy pháo">
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+              Chất nổ, vật liệu nổ, chất cháy và các vật phẩm có khả năng gây cháy nổ, gồm các loại chất nổ, thiết bị gây cháy, pháo và các vật phẩm có tính chất tương tự.
+            </p>
+          </div>
+
+          <!-- THẺ 2: Vũ khí, súng -->
+          <div id="banned-card-2" class="danger-box banned-content-card searchable-item p-6 sm:p-7 rounded-3xl reveal-card" data-index="2" data-keywords="vũ khí súng súng thật bản sao mô hình gây nhầm lẫn">
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+              Vũ khí, súng và các vật thể có hình dạng, đặc điểm tương tự vũ khí, bao gồm súng thật, một số loại vũ khí và bản sao, mô hình có khả năng gây nhầm lẫn.
+            </p>
+          </div>
+
+          <!-- THẺ 3: Vật sắc, nhọn, dao kiếm -->
+          <div id="banned-card-3" class="danger-box banned-content-card searchable-item p-6 sm:p-7 rounded-3xl reveal-card" data-index="3" data-keywords="vật sắc nhọn dao kiếm lưỡi sắc đầu nhọn gây thương tích">
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+              Vật sắc, nhọn có khả năng gây thương tích như dao, kiếm, vật có lưỡi sắc hoặc đầu nhọn.
+            </p>
+          </div>
+
+          <!-- THẺ 4: Dụng cụ, búa lao động -->
+          <div id="banned-card-4" class="danger-box banned-content-card searchable-item p-6 sm:p-7 rounded-3xl reveal-card" data-index="4" data-keywords="dụng cụ công cụ búa lao động đe dọa tấn công gây thương tích">
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+              Dụng cụ, công cụ có khả năng gây thương tích hoặc được sử dụng để đe dọa, tấn công, như một số loại búa, dụng cụ lao động và các vật dụng có đặc tính tương tự.
+            </p>
+          </div>
+
+          <!-- THẺ 5: Chất hóa học, chất độc -->
+          <div id="banned-card-5" class="danger-box banned-content-card searchable-item p-6 sm:p-7 rounded-3xl reveal-card" data-index="5" data-keywords="chất hóa học chất độc mất khả năng kiểm soát chất nguy hiểm độc hại">
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+              Các chất hóa học, chất độc, chất gây mất khả năng kiểm soát hoặc các chất nguy hiểm khác có thể gây nguy hiểm cho người hoặc ảnh hưởng đến an toàn của tàu bay.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- LƯU Ý CUỐI CÙNG TÁCH RIÊNG RA KHỎI 2 CỘT, ĐẶT Ở VỊ TRÍ DƯỚI CÙNG NỔI BẬT -->
+      <div class="mt-8 sm:mt-10 max-w-6xl mx-auto">
+        <div class="searchable-item p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white shadow-2xl border-2 border-red-400/50 flex flex-col sm:flex-row items-center gap-5 sm:gap-6 text-center sm:text-left reveal-card ring-4 ring-red-500/20" data-keywords="lưu ý cấm tự ý mang vào khu vực hạn chế tàu bay quy định cốt lõi">
+          <div class="lazy-icon-box w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl sm:text-5xl shrink-0 shadow-inner" data-lazy-icon="⚠️" data-loaded-bg="bg-white/25">
+            <span class="lazy-icon-content">⚠️</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-lg sm:text-2xl font-black leading-snug tracking-tight text-white drop-shadow-sm">
+              Đây là những nhóm vật phẩm hành khách không được tự ý mang vào khu vực hạn chế hoặc mang lên tàu bay.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- PHẦN 2: DIỆN HẠN CHẾ (ĐIỀU KIỆN VẬN CHUYỂN)                     -->
+    <!-- ============================================================== -->
+    <section id="nhom-han-che" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-sky-200">
+      
+      <div class="max-w-5xl mx-auto mb-10 reveal-card text-center">
+        <!-- TIÊU ĐỀ H2 PHẦN 2: NỀN CAM VÀNG CẢNH BÁO ĐẬM, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
+        <h2 class="themed-heading-banner heading-banner-amber kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase mb-6">
+          MỘT SỐ VẬT PHẨM NGUY HIỂM THUỘC DIỆN HẠN CHẾ CHỈ ĐƯỢC VẬN CHUYỂN KHI ĐÁP ỨNG ĐIỀU KIỆN
+        </h2>
+
+        <!-- NỘI DUNG MỞ ĐẦU PHẦN 2 CHÍNH XÁC NGUYÊN BẢN -->
+        <div class="p-8 rounded-3xl bg-white/95 border-2 border-amber-300 shadow-lg text-slate-800 text-base sm:text-lg leading-relaxed mt-6">
+          <p class="mb-4">
+            Không phải mọi vật phẩm nguy hiểm đều bị cấm tuyệt đối. Một số vật phẩm có thể được vận chuyển trong những điều kiện nhất định, tùy thuộc vào tính chất vật phẩm, vị trí vận chuyển, cách đóng gói, số lượng và yêu cầu của người khai thác tàu bay.
+          </p>
+          <p class="font-extrabold text-amber-800 text-lg">
+            Danh mục quy định các nhóm như:
+          </p>
+        </div>
+      </div>
+
+      <!-- TÁI CẤU TRÚC RADIAL CIRCULAR INFOGRAPHIC (THEO HÌNH CUNG CẤP) -->
+      <div class="max-w-6xl mx-auto my-8">
+        
+        <!-- Giao diện Radial Circle Hub trên Desktop / Tablet -->
+        <div class="hidden md:flex radial-hub-container reveal-card">
+          <!-- Vòng quỹ đạo đứt đoạn -->
+          <div class="radial-orbit-ring"></div>
+
+          <!-- VÒNG TRÒN TO Ở GIỮA TO HƠN, TONE VÀNG CAM CẢNH BÁO, CHỈ HIỂN THỊ NỘI DUNG, SIZE CHỮ TĂNG HƠN 1 SIZE -->
+          <div id="radialDetailHub" class="radial-center-circle">
+            <p id="radialHubDesc" class="radial-content-fade text-base sm:text-lg lg:text-xl text-white font-extrabold leading-relaxed overflow-y-auto max-h-64 px-2 py-1 text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+              Pin lithium, thiết bị điện tử sử dụng pin lithium hoặc pin kim loại lithium
+            </p>
+          </div>
+
+          <!-- 9 CỤC TRÒN NHỎ XUNG QUANH KÈM CHÚ THÍCH TÓM TẮT -->
+          <!-- Cục 1 (Góc -90deg: Đỉnh trên) -->
+          <button type="button" class="radial-satellite-node is-active" style="top: 36px; left: calc(50% - 38px);" data-index="1" title="Pin lithium" aria-label="Pin lithium">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="2" y="7" width="16" height="11" rx="2" ry="2"/>
+              <line x1="22" y1="11" x2="22" y2="14"/>
+              <line x1="6" y1="12" x2="8" y2="12"/>
+              <line x1="12" y1="12" x2="14" y2="12"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="top: -2px; left: calc(50% - 70px);">
+            Pin lithium
+          </div>
+
+          <!-- Cục 2 (Góc -50deg: Góc trên phải 1) -->
+          <button type="button" class="radial-satellite-node" style="top: 100px; right: 140px;" data-index="2" title="Xe lăn y tế" aria-label="Xe lăn y tế">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <!-- Bánh xe lăn lớn có nan hoa và vành lăn -->
+              <circle cx="9.5" cy="15.5" r="5" stroke-width="2"/>
+              <circle cx="9.5" cy="15.5" r="1.5" fill="currentColor"/>
+              <!-- Khung xe lăn và người ngồi -->
+              <circle cx="13" cy="4.5" r="1.8" fill="currentColor"/>
+              <path d="M12.5 7 L12.5 12 L17 12 L18.5 16.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9.5 12 L14 12" stroke-width="2" stroke-linecap="round"/>
+              <!-- Bánh trước nhỏ chuyển hướng -->
+              <circle cx="18" cy="19" r="1.5" stroke-width="1.8"/>
+              <!-- Biểu tượng chữ thập y tế phát sáng góc trên -->
+              <path d="M19 3 H23 M21 1 V5" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="top: 60px; right: 80px;">
+            Xe lăn, thiết bị y tế
+          </div>
+
+          <!-- Cục 3 (Góc -10deg: Phía phải trên) -->
+          <button type="button" class="radial-satellite-node" style="top: 235px; right: 65px;" data-index="3" title="Bình khí y tế" aria-label="Bình khí y tế">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="7" y="6" width="10" height="15" rx="3"/>
+              <line x1="12" y1="2" x2="12" y2="6"/>
+              <line x1="9" y1="2" x2="15" y2="2"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="top: 245px; right: -75px;">
+            Bình khí y tế
+          </div>
+
+          <!-- Cục 4 (Góc +30deg: Phía phải dưới) -->
+          <button type="button" class="radial-satellite-node" style="bottom: 215px; right: 75px;" data-index="4" title="Mỹ phẩm, chất lỏng" aria-label="Mỹ phẩm, chất lỏng">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M9 3h6v4H9z"/>
+              <path d="M7 7h10v13a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/>
+              <line x1="12" y1="11" x2="12" y2="17"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="bottom: 225px; right: -70px;">
+            Mỹ phẩm, sol khí
+          </div>
+
+          <!-- Cục 5 (Góc +70deg: Dưới phải) -->
+          <button type="button" class="radial-satellite-node" style="bottom: 80px; right: 180px;" data-index="5" title="Đồ uống có cồn" aria-label="Đồ uống có cồn">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M8 22h8"/>
+              <path d="M12 15v7"/>
+              <path d="M7 3h10l-2 8a3 3 0 0 1-3 3 3 3 0 0 1-3-3z"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="bottom: 40px; right: 150px;">
+            Đồ uống có cồn
+          </div>
+
+          <!-- Cục 6 (Góc +110deg: Dưới trái) -->
+          <button type="button" class="radial-satellite-node" style="bottom: 80px; left: 180px;" data-index="6" title="Diêm, bật lửa" aria-label="Diêm, bật lửa">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="bottom: 40px; left: 150px;">
+            Diêm, bật lửa
+          </div>
+
+          <!-- Cục 7 (Góc +150deg: Phía trái dưới) -->
+          <button type="button" class="radial-satellite-node" style="bottom: 215px; left: 75px;" data-index="7" title="Đá khô" aria-label="Đá khô">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 2v20M2 12h20"/>
+              <path d="m4.93 4.93 14.14 14.14M4.93 19.07 19.07 4.93"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="bottom: 225px; left: -65px;">
+            Đá khô
+          </div>
+
+          <!-- Cục 8 (Góc -170deg: Phía trái trên) -->
+          <button type="button" class="radial-satellite-node" style="top: 235px; left: 65px;" data-index="8" title="Chứa nhiên liệu" aria-label="Chứa nhiên liệu">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="top: 245px; left: -75px;">
+            Động cơ, nhiên liệu
+          </div>
+
+          <!-- Cục 9 (Góc -130deg: Góc trên trái 1) -->
+          <button type="button" class="radial-satellite-node" style="top: 100px; left: 140px;" data-index="9" title="Mẫu vật đặc biệt" aria-label="Mẫu vật đặc biệt">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </button>
+          <div class="radial-satellite-label" style="top: 60px; left: 80px;">
+            Mẫu vật đặc thù
+          </div>
+
+        </div>
+
+        <!-- PHẦN DƯỚI: BỎ NHÓM, CHỈ ICON TO VÀ CHỮ NỘI DUNG KẾ BÊN, TONE VÀNG CAM CẢNH BÁO, SIZE CHỮ TĂNG HƠN 1 SIZE -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:mt-12">
+          
+          <!-- Thẻ 1 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(1)" data-keywords="pin lithium thiết bị điện tử pin kim loại lithium sạc dự phòng điện thoại">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">🔋</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Pin lithium, thiết bị điện tử sử dụng pin lithium hoặc pin kim loại lithium
+            </p>
+          </div>
+
+          <!-- Thẻ 2 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(2)" data-keywords="xe lăn thiết bị hỗ trợ di chuyển thiết bị y tế sử dụng pin">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">🦽</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Xe lăn, thiết bị hỗ trợ di chuyển và một số thiết bị y tế sử dụng pin
+            </p>
+          </div>
+
+          <!-- Thẻ 3 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(3)" data-keywords="bình khí khí y tế phục vụ mục đích y tế oxy">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">🩺</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Một số loại bình khí, khí y tế phục vụ mục đích y tế
+            </p>
+          </div>
+
+          <!-- Thẻ 4 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(4)" data-keywords="mỹ phẩm chất lỏng sol khí không độc hại bình xịt nước hoa">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">🧴</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Một số loại mỹ phẩm, chất lỏng, sol khí không độc hại
+            </p>
+          </div>
+
+          <!-- Thẻ 5 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(5)" data-keywords="đồ uống có cồn rượu bia nồng độ cồn">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">🍷</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Đồ uống có cồn trong giới hạn, điều kiện được phép vận chuyển
+            </p>
+          </div>
+
+          <!-- Thẻ 6 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(6)" data-keywords="diêm bật lửa quẹt gas thiết bị sinh nhiệt">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">🔥</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Diêm, bật lửa và một số thiết bị sinh nhiệt theo điều kiện quy định
+            </p>
+          </div>
+
+          <!-- Thẻ 7 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(7)" data-keywords="đá khô carbon dioxide rắn bảo quản mẫu vật thực phẩm">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">🧊</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Đá khô (carbon dioxide rắn) và một số vật phẩm đặc thù phục vụ vận chuyển, bảo quản
+            </p>
+          </div>
+
+          <!-- Thẻ 8 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(8)" data-keywords="thiết bị dụng cụ chứa nhiên liệu có động cơ máy phát điện">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">⚙️</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Một số thiết bị, dụng cụ có chứa nhiên liệu hoặc có động cơ
+            </p>
+          </div>
+
+          <!-- Thẻ 9 -->
+          <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(9)" data-keywords="mẫu vật không lây nhiễm thiết bị chuyên dụng phục vụ mục đích đặc biệt">
+            <span class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-3xl shrink-0 shadow-sm">📦</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              Một số mẫu vật không lây nhiễm, thiết bị chuyên dụng và vật phẩm phục vụ mục đích đặc biệt
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CẢNH BÁO QUAN TRỌNG MỤC 2 CHÍNH XÁC NGUYÊN BẢN - ĐỒNG NHẤT THIẾT KẾ -->
+      <div class="mt-8 sm:mt-10 max-w-6xl mx-auto">
+        <div class="searchable-item p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white shadow-2xl border-2 border-amber-400/50 flex flex-col sm:flex-row items-center gap-5 sm:gap-6 text-center sm:text-left reveal-card ring-4 ring-amber-500/20" data-keywords="lưu ý cảnh báo tự suy đoán thông dụng bán rộng rãi điều kiện">
+          <div class="lazy-icon-box w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl sm:text-5xl shrink-0 shadow-inner" data-lazy-icon="⚠️" data-loaded-bg="bg-white/25">
+            <span class="lazy-icon-content">⚠️</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-lg sm:text-2xl font-black leading-snug tracking-tight text-white drop-shadow-sm mb-2">
+              Hành khách không nên tự suy đoán rằng một vật phẩm “nhỏ”, “thông dụng” hoặc “được bán rộng rãi trên thị trường” thì đương nhiên được phép mang lên tàu bay.
+            </p>
+            <p class="text-sm sm:text-base text-amber-100 font-medium leading-relaxed">
+              Việc được vận chuyển hay không còn phụ thuộc vào quy định cụ thể đối với từng loại vật phẩm và yêu cầu của người khai thác tàu bay.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- PHẦN 3: ĐẶC BIỆT LƯU Ý PIN LITHIUM VÀ THIẾT BỊ ĐIỆN TỬ         -->
+    <!-- ============================================================== -->
+    <section id="pin-lithium" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-emerald-200">
+      
+      <div class="max-w-5xl mx-auto mb-10 reveal-card text-center">
+        <!-- TIÊU ĐỀ H2 PHẦN 3: NỀN XANH LÁ ĐẬM THEO MÀU CHỦ ĐỀ, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
+        <h2 class="themed-heading-banner heading-banner-emerald kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase mb-6">
+          ĐẶC BIỆT LƯU Ý ĐỐI VỚI THIẾT BỊ ĐIỆN TỬ VÀ PIN LITHIUM
+        </h2>
+
+        <!-- NỘI DUNG MỞ ĐẦU PHẦN 3 CHÍNH XÁC NGUYÊN BẢN - TONE XANH LÁ -->
+        <div class="p-8 rounded-3xl bg-white/95 border-2 border-emerald-300 shadow-lg text-slate-800 text-base sm:text-lg leading-relaxed mt-6">
+          <p class="mb-4">
+            Các thiết bị điện tử cầm tay, bao gồm một số thiết bị y tế phục vụ nhu cầu cá nhân có chứa pin lithium-ion hoặc pin kim loại lithium, thuộc nhóm vật phẩm được quy định điều kiện vận chuyển.
+          </p>
+          <p class="font-black text-emerald-800 text-lg">
+            Vì vậy, trước khi ra sân bay, hành khách nên:
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 HÀNH ĐỘNG KHUYẾN NGHỊ: CHỈ SỬ DỤNG NỘI DUNG CHÍNH, BỎ THANH TRẮNG Ở GIỮA, TƯƠNG THÍCH MỌI THIẾT BỊ, TONE MÀU XANH LÁ CHỦ ĐẠO -->
+      <div class="staggered-track my-10 px-2 sm:px-4">
+        
+        <!-- Hàng 1: Thẻ bên phải - Kiểm tra loại pin -->
+        <div class="staggered-row reveal-card">
+          <div class="hidden md:block"></div>
+          <div class="staggered-center-icon">
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-emerald-500 shadow-md flex items-center justify-center text-emerald-700">
+              <!-- Icon kính lúp kiểm tra thiết bị -->
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+          </div>
+          <div class="staggered-card-right p-6 sm:p-7 shadow-xl searchable-item" data-keywords="kiểm tra loại pin thông số thiết bị">
+            <div class="flex items-center gap-4">
+              <span class="md:hidden w-12 h-12 rounded-xl bg-white/50 flex items-center justify-center text-emerald-900 shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </span>
+              <p class="text-base sm:text-xl font-black text-emerald-950 leading-relaxed">
+                Kiểm tra loại pin và thông số của thiết bị
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hàng 2: Thẻ bên trái - Thực hiện đúng yêu cầu -->
+        <div class="staggered-row reveal-card">
+          <div class="staggered-card-left p-6 sm:p-7 shadow-xl searchable-item" data-keywords="thực hiện đúng yêu cầu vị trí vận chuyển bảo quản pin thiết bị">
+            <div class="flex items-center gap-4">
+              <span class="md:hidden w-12 h-12 rounded-xl bg-white/50 flex items-center justify-center text-emerald-900 shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="2" y="7" width="16" height="11" rx="2"/><line x1="22" y1="11" x2="22" y2="14"/><path d="M7 12h6"/>
+                </svg>
+              </span>
+              <p class="text-base sm:text-xl font-black text-emerald-950 leading-relaxed">
+                Thực hiện đúng yêu cầu về vị trí vận chuyển, bảo quản pin/thiết bị
+              </p>
+            </div>
+          </div>
+          <div class="staggered-center-icon">
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-emerald-500 shadow-md flex items-center justify-center text-emerald-700">
+              <!-- Icon pin / vị trí vận chuyển -->
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="16" height="11" rx="2"/>
+                <line x1="22" y1="11" x2="22" y2="14"/>
+                <path d="M7 12h6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+
+        <!-- Hàng 3: Thẻ bên phải - Không tự ý đóng gói hư hỏng -->
+        <div class="staggered-row reveal-card">
+          <div class="hidden md:block"></div>
+          <div class="staggered-center-icon">
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-emerald-500 shadow-md flex items-center justify-center text-emerald-700">
+              <!-- Icon dấu hiệu hư hỏng cảnh báo -->
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+          </div>
+          <div class="staggered-card-right p-6 sm:p-7 shadow-xl searchable-item" data-keywords="không tự ý đóng gói vận chuyển pin thiết bị hư hỏng biến dạng phát nhiệt">
+            <div class="flex items-center gap-4">
+              <span class="md:hidden w-12 h-12 rounded-xl bg-white/50 flex items-center justify-center text-emerald-900 shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </span>
+              <p class="text-base sm:text-xl font-black text-emerald-950 leading-relaxed">
+                Không tự ý đóng gói hoặc vận chuyển pin, thiết bị có dấu hiệu hư hỏng, biến dạng, phát nhiệt
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hàng 4: Thẻ bên trái - Chủ động hỏi hãng -->
+        <div class="staggered-row reveal-card">
+          <div class="staggered-card-left p-6 sm:p-7 shadow-xl searchable-item" data-keywords="chủ động hỏi hãng hàng không lực lượng kiểm soát an ninh hàng không">
+            <div class="flex items-center gap-4">
+              <span class="md:hidden w-12 h-12 rounded-xl bg-white/50 flex items-center justify-center text-emerald-900 shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </span>
+              <p class="text-base sm:text-xl font-black text-emerald-950 leading-relaxed">
+                Chủ động hỏi hãng hàng không hoặc lực lượng kiểm soát an ninh hàng không khi chưa chắc chắn vật phẩm có được phép vận chuyển hay không
+              </p>
+            </div>
+          </div>
+          <div class="staggered-center-icon">
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-emerald-500 shadow-md flex items-center justify-center text-emerald-700">
+              <!-- Icon đối thoại hỏi thông tin -->
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="10" r="1" fill="currentColor"/>
+                <circle cx="8" cy="10" r="1" fill="currentColor"/>
+                <circle cx="16" cy="10" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+        </div>
+
+      </div>
+
+      <!-- LƯU Ý PHẦN 3 CHÍNH XÁC NGUYÊN BẢN - ĐỒNG NHẤT THIẾT KẾ -->
+      <div class="mt-8 sm:mt-10 max-w-6xl mx-auto">
+        <div class="searchable-item p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white shadow-2xl border-2 border-emerald-400/50 flex flex-col sm:flex-row items-center gap-5 sm:gap-6 text-center sm:text-left reveal-card ring-4 ring-emerald-500/20" data-keywords="lưu ý danh mục điều kiện vận chuyển tương ứng pin lithium thiết bị">
+          <div class="lazy-icon-box w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl sm:text-5xl shrink-0 shadow-inner" data-lazy-icon="⚠️" data-loaded-bg="bg-white/25">
+            <span class="lazy-icon-content">⚠️</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-lg sm:text-2xl font-black leading-snug tracking-tight text-white drop-shadow-sm mb-2">
+              Việc một nhóm thiết bị được quy định trong danh mục không đồng nghĩa với việc mọi thiết bị thuộc nhóm đó đều được mang lên tàu bay trong mọi trường hợp.
+            </p>
+            <p class="text-sm sm:text-base text-emerald-100 font-medium leading-relaxed">
+              Hành khách cần tuân thủ đầy đủ điều kiện vận chuyển tương ứng.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- PHẦN 4: 5 NGUYÊN TẮC HÀNH KHÁCH NÊN NHỚ                        -->
+    <!-- ============================================================== -->
+    <section id="5-nguyen-tac" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-sky-200">
+      
+      <div class="max-w-5xl mx-auto mb-10 reveal-card text-center">
+        <!-- TIÊU ĐỀ H2 PHẦN 4: NỀN XANH DƯƠNG ĐẬM THEO MÀU CHỦ ĐỀ, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
+        <h2 class="themed-heading-banner heading-banner-blue kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase">
+          5 NGUYÊN TẮC HÀNH KHÁCH NÊN NHỚ
+        </h2>
+      </div>
+
+      <!-- 5 NGUYÊN TẮC VÀNG TRÌNH BÀY DẠNG INFOGRAPHIC RÕ RÀNG NGUYÊN BẢN -->
+      <div class="max-w-5xl mx-auto space-y-5 mb-8">
+
+        <!-- NGUYÊN TẮC 1 -->
+        <div class="infographic-box p-6 rounded-3xl border-2 border-sky-200 flex items-center gap-5 reveal-card">
+          <div class="lazy-icon-box w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-3xl shrink-0 font-black shadow-md" data-lazy-icon="🔎" data-loaded-bg="bg-sky-500 text-white shadow-sky-500/20">
+            <span class="lazy-icon-content"></span>
+          </div>
+          <div class="leading-relaxed">
+            <span class="block text-xl sm:text-2xl font-black text-sky-600 mb-1">
+              KIỂM TRA
+            </span>
+            <p class="text-base sm:text-lg font-semibold text-slate-800">
+              Kiểm tra kỹ hành lý trước khi đến sân bay.
+            </p>
+          </div>
+        </div>
+
+        <!-- NGUYÊN TẮC 2 -->
+        <div class="infographic-box p-6 rounded-3xl border-2 border-sky-200 flex items-center gap-5 reveal-card">
+          <div class="lazy-icon-box w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-3xl shrink-0 font-black shadow-md" data-lazy-icon="✋" data-loaded-bg="bg-sky-500 text-white shadow-sky-500/20">
+            <span class="lazy-icon-content"></span>
+          </div>
+          <div class="leading-relaxed">
+            <span class="block text-xl sm:text-2xl font-black text-sky-600 mb-1">
+              KHÔNG TỰ Ý MANG
+            </span>
+            <p class="text-base sm:text-lg font-semibold text-slate-800">
+              Không mang theo vũ khí, chất nổ, chất cháy và vật phẩm nguy hiểm thuộc diện cấm.
+            </p>
+          </div>
+        </div>
+
+        <!-- NGUYÊN TẮC 3 -->
+        <div class="infographic-box p-6 rounded-3xl border-2 border-sky-200 flex items-center gap-5 reveal-card">
+          <div class="lazy-icon-box w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-3xl shrink-0 font-black shadow-md" data-lazy-icon="📢" data-loaded-bg="bg-sky-500 text-white shadow-sky-500/20">
+            <span class="lazy-icon-content"></span>
+          </div>
+          <div class="leading-relaxed">
+            <span class="block text-xl sm:text-2xl font-black text-sky-600 mb-1">
+              KHAI BÁO
+            </span>
+            <p class="text-base sm:text-lg font-semibold text-slate-800">
+              Chủ động khai báo khi mang theo vật phẩm thuộc diện hạn chế hoặc chưa rõ điều kiện vận chuyển.
+            </p>
+          </div>
+        </div>
+
+        <!-- NGUYÊN TẮC 4 -->
+        <div class="infographic-box p-6 rounded-3xl border-2 border-sky-200 flex items-center gap-5 reveal-card">
+          <div class="lazy-icon-box w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-3xl shrink-0 font-black shadow-md" data-lazy-icon="👮" data-loaded-bg="bg-sky-500 text-white shadow-sky-500/20">
+            <span class="lazy-icon-content"></span>
+          </div>
+          <div class="leading-relaxed">
+            <span class="block text-xl sm:text-2xl font-black text-sky-600 mb-1">
+              TUÂN THỦ
+            </span>
+            <p class="text-base sm:text-lg font-semibold text-slate-800">
+              Chấp hành hướng dẫn của lực lượng kiểm soát an ninh hàng không và người khai thác tàu bay.
+            </p>
+          </div>
+        </div>
+
+        <!-- NGUYÊN TẮC 5 -->
+        <div class="infographic-box p-6 rounded-3xl border-2 border-sky-200 flex items-center gap-5 reveal-card">
+          <div class="lazy-icon-box w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-3xl shrink-0 font-black shadow-md" data-lazy-icon="📞" data-loaded-bg="bg-sky-500 text-white shadow-sky-500/20">
+            <span class="lazy-icon-content"></span>
+          </div>
+          <div class="leading-relaxed">
+            <span class="block text-xl sm:text-2xl font-black text-sky-600 mb-1">
+              HỎI TRƯỚC – AN TÂM BAY
+            </span>
+            <p class="text-base sm:text-lg font-semibold text-slate-800">
+              Nếu không chắc chắn, hãy liên hệ hãng hàng không hoặc lực lượng kiểm soát an ninh hàng không để được hướng dẫn trước khi làm thủ tục.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- PHẦN 5: THÔNG ĐIỆP KẾT THÚC VÀ TRÁCH NHIỆM CHUNG               -->
+    <!-- ============================================================== -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-sky-200">
+      
+      <div class="max-w-5xl mx-auto text-center reveal-card">
+        
+        <div class="lazy-icon-box w-20 h-20 mx-auto rounded-3xl bg-sky-100 flex items-center justify-center text-4xl shadow-xl mb-8" data-lazy-icon="🛡️" data-loaded-bg="bg-gradient-to-tr from-sky-500 to-blue-600 text-white shadow-sky-500/25">
+          <span class="lazy-icon-content"></span>
+        </div>
+
+        <!-- TIÊU ĐỀ H3 KẾT THÚC: NỀN XANH DƯƠNG ĐẬM, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
+        <h3 class="themed-heading-banner heading-banner-blue kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase mb-8">
+          AN NINH HÀNG KHÔNG LÀ TRÁCH NHIỆM CỦA MỖI CHÚNG TA!
+        </h3>
+
+        <!-- NỘI DUNG KẾT THÚC CHÍNH XÁC NGUYÊN BẢN -->
+        <div class="p-8 sm:p-12 rounded-3xl bg-white/95 border-2 border-sky-300 shadow-2xl mb-8 text-left sm:text-center">
+          <p class="text-lg sm:text-2xl text-slate-800 leading-relaxed mb-8 font-semibold">
+            Một vật phẩm tưởng như bình thường nhưng nếu không được kiểm soát đúng quy định có thể trở thành nguy cơ đối với an toàn hành khách, tổ bay, tàu bay và toàn bộ hoạt động hàng không.
+          </p>
+
+          <div class="h-1 w-24 mx-auto bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mb-8"></div>
+
+          <p class="text-lg sm:text-2xl font-black text-sky-800 leading-relaxed">
+            Chủ động kiểm tra – Tuân thủ quy định – Hợp tác với lực lượng kiểm soát an ninh hàng không chính là góp phần xây dựng môi trường hàng không an toàn, văn minh và không có vật phẩm nguy hiểm trái quy định.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- PHẦN 6: JAVASCRIPT XỬ LÝ FRAMER MOTION KINETIC TYPOGRAPHY & UX -->
+  <!-- ============================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. THANH TIẾN TRÌNH CUỘN TRANG (FLIGHT PROGRESS BAR)
+      const progressBar = document.getElementById('flightProgressBar');
+      const updateScrollProgress = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        if (progressBar) {
+          progressBar.style.width = `${progress}%`;
+        }
+      };
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      updateScrollProgress();
+
+      // 2. TÍCH HỢP FRAMER MOTION (MOTION CDN) TẠO KINETIC TYPOGRAPHY CHO H1 VÀ H2
+      const initKineticHeadings = () => {
+        const kineticHeadings = document.querySelectorAll('.kinetic-heading');
+
+        kineticHeadings.forEach((heading) => {
+          // Lưu lại nội dung gốc và tách thành các từ (kinetic words) bảo toàn khoảng trắng & emoji
+          const rawText = heading.textContent || '';
+          const words = rawText.trim().split(/(\s+)/);
+
+          heading.innerHTML = '';
+          words.forEach((word) => {
+            if (/^\s+$/.test(word)) {
+              heading.appendChild(document.createTextNode(word));
+            } else {
+              const span = document.createElement('span');
+              span.className = 'kinetic-word';
+              span.textContent = word;
+              heading.appendChild(span);
+            }
+          });
+
+          const wordElements = heading.querySelectorAll('.kinetic-word');
+          const accentLine = heading.parentElement?.querySelector('.kinetic-line-accent');
+
+          // Hàm kích hoạt hiệu ứng Kinetic Typography
+          const triggerKineticMotion = () => {
+            // Sử dụng thư viện Framer Motion / Motion qua window.Motion nếu có sẵn
+            if (window.Motion && typeof window.Motion.animate === 'function') {
+              const staggerFn = typeof window.Motion.stagger === 'function' 
+                ? window.Motion.stagger(0.038) 
+                : 0.038;
+
+              window.Motion.animate(
+                wordElements,
+                {
+                  opacity: [0, 1],
+                  transform: [
+                    'translateY(28px) scale(0.92) rotate(-1.5deg)',
+                    'translateY(0px) scale(1) rotate(0deg)'
+                  ],
+                  filter: ['blur(4px)', 'blur(0px)']
+                },
+                {
+                  duration: 0.55,
+                  delay: staggerFn,
+                  easing: [0.16, 1, 0.3, 1]
+                }
+              );
+            } else {
+              // Dự phòng tự động mượt mà bằng Web Animations API nếu CDN chưa phản hồi
+              wordElements.forEach((wordEl, idx) => {
+                wordEl.animate([
+                  { opacity: 0, transform: 'translateY(28px) scale(0.92) rotate(-1.5deg)', filter: 'blur(4px)' },
+                  { opacity: 1, transform: 'translateY(0px) scale(1) rotate(0deg)', filter: 'blur(0px)' }
+                ], {
+                  duration: 550,
+                  delay: idx * 38,
+                  easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                  fill: 'forwards'
+                });
+              });
+            }
+
+            // Kích hoạt đường chỉ viền kinetic mở rộng
+            if (accentLine) {
+              setTimeout(() => {
+                accentLine.classList.add('is-active');
+              }, wordElements.length * 38 + 150);
+            }
+          };
+
+          // Kích hoạt khi tiêu đề cuộn đến trong khung nhìn (In-View Trigger)
+          if (window.Motion && typeof window.Motion.inView === 'function') {
+            window.Motion.inView(heading, () => {
+              triggerKineticMotion();
+            }, { margin: '-30px 0px' });
+          } else if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  triggerKineticMotion();
+                  observer.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.15 });
+
+            observer.observe(heading);
+          } else {
+            triggerKineticMotion();
+          }
+        });
+      };
+
+      // Chạy khởi tạo Kinetic Typography
+      initKineticHeadings();
+
+      // 3. TỐI ƯU HÓA CUỘN TRANG BẰNG INTERSECTION OBSERVER LAZY-LOADING ICON & MINH HỌA
+      const initLazyIcons = () => {
+        const lazyIconBoxes = document.querySelectorAll('.lazy-icon-box');
+
+        const activateIcon = (box) => {
+          if (box.classList.contains('is-loaded')) return;
+          const icon = box.getAttribute('data-lazy-icon');
+          const loadedBg = box.getAttribute('data-loaded-bg');
+          const content = box.querySelector('.lazy-icon-content');
+
+          if (content && icon) {
+            content.textContent = icon;
+          }
+          if (loadedBg) {
+            loadedBg.split(' ').forEach((cls) => {
+              if (cls.trim()) box.classList.add(cls.trim());
+            });
+          }
+          box.classList.add('is-loaded');
+        };
+
+        if ('IntersectionObserver' in window) {
+          const iconObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                activateIcon(entry.target);
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            // Nạp trước 160px trước khi xuất hiện trong viewport để cuộn mượt không giật
+            rootMargin: '160px 0px',
+            threshold: 0.05
+          });
+
+          lazyIconBoxes.forEach((box) => iconObserver.observe(box));
+        } else {
+          lazyIconBoxes.forEach((box) => activateIcon(box));
+        }
+      };
+
+      initLazyIcons();
+
+      // 3.5. TƯƠNG TÁC 2 CỘT: BẤM ICON CỘT 1 -> NỘI DUNG CỘT 2 NỔI BẬT HƠN
+      const bannedNavBtns = document.querySelectorAll('.banned-nav-btn');
+      const bannedContentCards = document.querySelectorAll('.banned-content-card');
+
+      const highlightBannedItem = (targetIndex, shouldScroll = true) => {
+        const indexStr = String(targetIndex);
+
+        // Cập nhật trạng thái Cột 1 (Icons)
+        bannedNavBtns.forEach((btn) => {
+          const isSelected = btn.getAttribute('data-target') === indexStr;
+          btn.classList.toggle('is-active', isSelected);
+          btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        });
+
+        // Cập nhật trạng thái Cột 2 (Content)
+        bannedContentCards.forEach((card) => {
+          const isSelected = card.getAttribute('data-index') === indexStr;
+          card.classList.toggle('is-highlighted', isSelected);
+          
+          const badge = card.querySelector('.highlight-badge');
+          if (badge) {
+            if (isSelected) {
+              badge.classList.remove('hidden');
+              badge.classList.add('inline-flex');
+            } else {
+              badge.classList.add('hidden');
+              badge.classList.remove('inline-flex');
+            }
+          }
+
+          if (isSelected && shouldScroll) {
+            // Cuộn êm ái tới thẻ nếu đang ở ngoài tầm nhìn
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+      };
+
+      // Sự kiện khi bấm vào từng icon ở Cột 1
+      bannedNavBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-target');
+          if (target) highlightBannedItem(target, true);
+        });
+      });
+
+      // Hỗ trợ bấm trực tiếp vào thẻ nội dung ở Cột 2 để kích hoạt icon tương ứng
+      bannedContentCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          const target = card.getAttribute('data-index');
+          if (target) highlightBannedItem(target, false);
+        });
+      });
+
+      // 3.6. TƯƠNG TÁC RADIAL INFOGRAPHIC CHO PHẦN 2 (DIỆN HẠN CHẾ): BẤM ICON -> HIỆN VÒNG TRÒN TO Ở GIỮA
+      const radialItemsData = {
+        "1": {
+          icon: "🔋",
+          tag: "Nhóm 1 / 9",
+          headline: "Pin lithium & Thiết bị điện tử",
+          desc: "Pin lithium, thiết bị điện tử sử dụng pin lithium hoặc pin kim loại lithium"
+        },
+        "2": {
+          icon: "🦽",
+          tag: "Nhóm 2 / 9",
+          headline: "Xe lăn & Thiết bị y tế",
+          desc: "Xe lăn, thiết bị hỗ trợ di chuyển và một số thiết bị y tế sử dụng pin"
+        },
+        "3": {
+          icon: "🩺",
+          tag: "Nhóm 3 / 9",
+          headline: "Bình khí phục vụ y tế",
+          desc: "Một số loại bình khí, khí y tế phục vụ mục đích y tế"
+        },
+        "4": {
+          icon: "🧴",
+          tag: "Nhóm 4 / 9",
+          headline: "Mỹ phẩm, chất lỏng & sol khí",
+          desc: "Một số loại mỹ phẩm, chất lỏng, sol khí không độc hại"
+        },
+        "5": {
+          icon: "🍷",
+          tag: "Nhóm 5 / 9",
+          headline: "Đồ uống có cồn",
+          desc: "Đồ uống có cồn trong giới hạn, điều kiện được phép vận chuyển"
+        },
+        "6": {
+          icon: "🔥",
+          tag: "Nhóm 6 / 9",
+          headline: "Diêm & Bật lửa nhỏ",
+          desc: "Diêm, bật lửa và một số thiết bị sinh nhiệt theo điều kiện quy định"
+        },
+        "7": {
+          icon: "🧊",
+          tag: "Nhóm 7 / 9",
+          headline: "Đá khô (CO2 rắn)",
+          desc: "Đá khô (carbon dioxide rắn) và một số vật phẩm đặc thù phục vụ vận chuyển, bảo quản"
+        },
+        "8": {
+          icon: "⚙️",
+          tag: "Nhóm 8 / 9",
+          headline: "Thiết bị có động cơ & nhiên liệu",
+          desc: "Một số thiết bị, dụng cụ có chứa nhiên liệu hoặc có động cơ"
+        },
+        "9": {
+          icon: "📦",
+          tag: "Nhóm 9 / 9",
+          headline: "Mẫu vật đặc thù không lây nhiễm",
+          desc: "Một số mẫu vật không lây nhiễm, thiết bị chuyên dụng và vật phẩm phục vụ mục đích đặc biệt"
+        }
+      };
+
+      const radialSatelliteNodes = document.querySelectorAll('.radial-satellite-node');
+      const radialHubIcon = document.getElementById('radialHubIcon');
+      const radialHubTitle = document.getElementById('radialHubTitle');
+      const radialHubHeadline = document.getElementById('radialHubHeadline');
+      const radialHubDesc = document.getElementById('radialHubDesc');
+
+      window.selectRadialItem = (index) => {
+        const key = String(index);
+        const data = radialItemsData[key];
+        if (!data) return;
+
+        // Cập nhật trạng thái active của nút vệ tinh xung quanh
+        radialSatelliteNodes.forEach(node => {
+          const isSelected = node.getAttribute('data-index') === key;
+          node.classList.toggle('is-active', isSelected);
+        });
+
+        // Hiệu ứng hoạt ảnh mượt mà (Fade Out cũ -> Cập nhật -> Fade In mới)
+        if (radialHubDesc) {
+          const detailHub = document.getElementById('radialDetailHub');
+          if (detailHub) {
+            // Bước 1: Kích hoạt co nhẹ vòng tròn và fade-out nội dung cũ
+            detailHub.classList.add('is-updating');
+            radialHubDesc.classList.add('is-fading-out');
+
+            // Bước 2: Khi đã mờ dần, thay đổi văn bản rồi fade-in nội dung mới
+            setTimeout(() => {
+              radialHubDesc.textContent = data.desc;
+              // Bỏ class mờ dần để kích hoạt animation bung nở và hiển thị sắc nét (fade in)
+              radialHubDesc.classList.remove('is-fading-out');
+              detailHub.classList.remove('is-updating');
+            }, 220);
+          } else {
+            radialHubDesc.textContent = data.desc;
+          }
+        }
+      };
+
+      radialSatelliteNodes.forEach(node => {
+        node.addEventListener('click', () => {
+          const idx = node.getAttribute('data-index');
+          if (idx) window.selectRadialItem(idx);
+        });
+      });
+
+      // 4. HIỆU ỨNG HIỂN THỊ THẺ KHI CUỘN ĐẾN (REVEAL ON SCROLL CHO THẺ DỮ LIỆU)
+      const revealCards = document.querySelectorAll('.reveal-card');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+
+        revealCards.forEach(card => observer.observe(card));
+      } else {
+        revealCards.forEach(card => card.classList.add('is-visible'));
+      }
+
+      // 5. TRA CỨU NHANH VẬT PHẨM (LIVE SEARCH)
+      const toggleSearchBtn = document.getElementById('toggleSearchBtn');
+      const searchBarPanel = document.getElementById('searchBarPanel');
+      const itemSearchInput = document.getElementById('itemSearchInput');
+      const clearSearchBtn = document.getElementById('clearSearchBtn');
+      const searchResultsCount = document.getElementById('searchResultsCount');
+      const searchableCards = document.querySelectorAll('.searchable-item');
+
+      if (toggleSearchBtn && searchBarPanel && itemSearchInput) {
+        toggleSearchBtn.addEventListener('click', () => {
+          const isHidden = searchBarPanel.classList.toggle('hidden');
+          if (!isHidden) {
+            itemSearchInput.focus();
+          }
+        });
+
+        const filterItems = () => {
+          const query = itemSearchInput.value.trim().toLowerCase();
+          if (!query) {
+            searchableCards.forEach(card => {
+              card.style.display = '';
+              card.classList.remove('ring-4', 'ring-sky-500');
+            });
+            if (searchResultsCount) searchResultsCount.classList.add('hidden');
+            return;
+          }
+
+          let matched = 0;
+          searchableCards.forEach(card => {
+            const text = (card.textContent || '').toLowerCase();
+            const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+            
+            if (text.includes(query) || keywords.includes(query)) {
+              card.style.display = '';
+              card.classList.add('ring-4', 'ring-sky-500');
+              matched++;
+            } else {
+              card.style.display = 'none';
+              card.classList.remove('ring-4', 'ring-sky-500');
+            }
+          });
+
+          if (searchResultsCount) {
+            searchResultsCount.textContent = `Tìm thấy ${matched} mục quy định khớp với từ khóa "${query}".`;
+            searchResultsCount.classList.remove('hidden');
+          }
+        };
+
+        itemSearchInput.addEventListener('input', filterItems);
+        
+        if (clearSearchBtn) {
+          clearSearchBtn.addEventListener('click', () => {
+            itemSearchInput.value = '';
+            filterItems();
+            itemSearchInput.focus();
+          });
+        }
+      }
+
+      // 6. PHÁT ÂM THANH TOÀN VĂN QUY ĐỊNH (TEXT TO SPEECH)
+      const audioSpeechBtn = document.getElementById('audioSpeechBtn');
+      const speechIcon = document.getElementById('speechIcon');
+      const speechText = document.getElementById('speechText');
+      let isSpeaking = false;
+
+      if ('speechSynthesis' in window && audioSpeechBtn) {
+        audioSpeechBtn.addEventListener('click', () => {
+          if (isSpeaking) {
+            window.speechSynthesis.cancel();
+            isSpeaking = false;
+            if (speechIcon) speechIcon.textContent = '🔊';
+            if (speechText) speechText.textContent = 'Nghe đọc';
+          } else {
+            const textToRead = `Vật phẩm nguy hiểm cấm, hạn chế mang vào khu vực hạn chế, mang lên tàu bay – Hành khách cần biết để chuyến bay an toàn. An toàn hàng không bắt đầu từ những vật dụng hành khách mang theo! Căn cứ Công văn 25655 của Cục Quản lý xuất nhập cảnh ngày 21 tháng 9 năm 2026. Mục 1: Nhóm vật phẩm bị cấm bao gồm chất nổ, vũ khí súng, vật sắc nhọn, dụng cụ công cụ có khả năng gây thương tích, chất hóa học và chất độc. Mục 2: Một số vật phẩm nguy hiểm thuộc diện hạn chế chỉ được vận chuyển khi đáp ứng điều kiện như pin lithium, xe lăn y tế, bình khí y tế, mỹ phẩm chất lỏng, đồ uống có cồn, diêm bật lửa, đá khô, thiết bị có động cơ và mẫu vật đặc biệt. Mục 3: Đặc biệt lưu ý đối với thiết bị điện tử và pin lithium. Mục 4: 5 nguyên tắc hành khách nên nhớ gồm Kiểm tra, Không tự ý mang, Khai báo, Tuân thủ và Hỏi trước an tâm bay. An ninh hàng không là trách nhiệm của mỗi chúng ta!`;
+
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.95;
+
+            utterance.onend = () => {
+              isSpeaking = false;
+              if (speechIcon) speechIcon.textContent = '🔊';
+              if (speechText) speechText.textContent = 'Nghe đọc';
+            };
+
+            utterance.onerror = () => {
+              isSpeaking = false;
+              if (speechIcon) speechIcon.textContent = '🔊';
+              if (speechText) speechText.textContent = 'Nghe đọc';
+            };
+
+            window.speechSynthesis.speak(utterance);
+            isSpeaking = true;
+            if (speechIcon) speechIcon.textContent = '⏹️';
+            if (speechText) speechText.textContent = 'Dừng đọc';
+          }
+        });
+      } else if (audioSpeechBtn) {
+        audioSpeechBtn.style.display = 'none';
+      }
+
+    });
+  </script>
+</body>
+</html>

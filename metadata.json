@@ -1,0 +1,6 @@
+{
+  "name": "Infographic An Toàn Hàng Không",
+  "description": "Infographic tương tác tuyên truyền về vật phẩm nguy hiểm cấm, hạn chế mang lên tàu bay theo quy định an ninh hàng không.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
