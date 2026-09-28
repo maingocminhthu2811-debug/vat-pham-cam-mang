@@ -505,15 +505,15 @@
       border: 2.5px dashed rgba(245, 158, 11, 0.4);
       pointer-events: none;
     }
-    /* VÒNG TRÒN TO Ở GIỮA TO HƠN, TONE VÀNG CAM CẢNH BÁO ĐẬM ĐÀ, ĐỘ TƯƠNG PHẢN CAO VỚI CHỮ TRẮNG */
+    /* VÒNG TRÒN TO Ở GIỮA: NỀN TRẮNG SÁNG, NỔI BẬT CHỮ ĐẬM SẮC NÉT */
     .radial-center-circle {
       width: 350px;
       height: 350px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 25%, #D97706 0%, #B45309 45%, #92400E 80%, #78350F 100%);
-      color: #FFFFFF;
-      border: 3.5px solid #FDE68A;
-      box-shadow: 0 24px 50px -10px rgba(120, 53, 15, 0.65), 0 0 0 6px rgba(217, 119, 6, 0.45), inset 0 3px 12px rgba(254, 243, 199, 0.35), inset 0 -8px 18px rgba(69, 26, 3, 0.6);
+      background: #FFFFFF !important;
+      color: #78350F !important;
+      border: 4px solid #F59E0B;
+      box-shadow: 0 24px 50px -10px rgba(180, 83, 9, 0.28), 0 0 0 8px rgba(251, 191, 36, 0.35), inset 0 2px 10px rgba(245, 158, 11, 0.1);
       z-index: 10;
       display: flex;
       flex-direction: column;
@@ -525,12 +525,12 @@
     }
     .radial-center-circle:hover {
       transform: scale(1.04);
-      box-shadow: 0 28px 60px -8px rgba(120, 53, 15, 0.75), 0 0 0 8px rgba(245, 158, 11, 0.5);
+      box-shadow: 0 28px 60px -8px rgba(180, 83, 9, 0.38), 0 0 0 10px rgba(245, 158, 11, 0.45);
     }
     /* Hiệu ứng xung nhịp nhẹ nhàng cho vòng tròn trung tâm khi đổi nội dung */
     .radial-center-circle.is-updating {
       transform: scale(0.96);
-      box-shadow: 0 16px 32px -8px rgba(217, 119, 6, 0.4), 0 0 0 3px rgba(251, 191, 36, 0.25);
+      box-shadow: 0 16px 32px -8px rgba(217, 119, 6, 0.3), 0 0 0 4px rgba(251, 191, 36, 0.25);
     }
     /* Hiệu ứng phai mờ (fade out) và hiển thị (fade in) nội dung bên trong */
     .radial-content-fade {
@@ -615,23 +615,24 @@
       }
     }
 
-    /* Thẻ bên trái và phải với tone màu xanh lá chủ đạo tươi sáng, an toàn */
+    /* Thẻ bên trái và phải: Nền trắng tinh khiết, nổi bật chữ xanh ngọc đậm sắc nét */
     .staggered-card-left {
       grid-column: 1 / 2;
       justify-self: end;
       width: 100%;
       max-width: 440px;
       border-radius: 20px;
-      background: linear-gradient(135deg, #ECFDF5 0%, #A7F3D0 40%, #34D399 75%, #059669 100%);
-      color: #064E3B;
-      box-shadow: 0 14px 28px -4px rgba(5, 150, 105, 0.22);
-      border: 1.5px solid rgba(255, 255, 255, 0.8);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #FFFFFF !important;
+      color: #064E3B !important;
+      box-shadow: 0 14px 28px -4px rgba(5, 150, 105, 0.15), 0 4px 10px rgba(0, 0, 0, 0.04);
+      border: 2px solid #10B981;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
     }
     .staggered-card-left:hover {
       transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 20px 36px -4px rgba(5, 150, 105, 0.35);
+      box-shadow: 0 20px 36px -4px rgba(5, 150, 105, 0.28);
+      border-color: #059669;
     }
 
     .staggered-card-right {
@@ -640,16 +641,17 @@
       width: 100%;
       max-width: 440px;
       border-radius: 20px;
-      background: linear-gradient(135deg, #F0FDF4 0%, #BBF7D0 40%, #4ADE80 75%, #16A34A 100%);
-      color: #064E3B;
-      box-shadow: 0 14px 28px -4px rgba(22, 163, 74, 0.22);
-      border: 1.5px solid rgba(255, 255, 255, 0.8);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #FFFFFF !important;
+      color: #064E3B !important;
+      box-shadow: 0 14px 28px -4px rgba(5, 150, 105, 0.15), 0 4px 10px rgba(0, 0, 0, 0.04);
+      border: 2px solid #10B981;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
     }
     .staggered-card-right:hover {
       transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 20px 36px -4px rgba(22, 163, 74, 0.35);
+      box-shadow: 0 20px 36px -4px rgba(5, 150, 105, 0.28);
+      border-color: #059669;
     }
 
     .staggered-center-icon {
@@ -747,26 +749,23 @@
           <div class="cover-star w-2 h-2 top-8 right-1/4" style="animation: starTwinkle 4s ease-in-out infinite 1s;"></div>
           <div class="cover-star w-1.5 h-1.5 bottom-1/3 right-1/5" style="animation: starTwinkle 3.5s ease-in-out infinite 0.5s;"></div>
 
-          <!-- PHẦN 1: KHỐI TEXT TIÊU ĐỀ CANH GIỮA TOÀN DIỆN, TUYỆT ĐỐI KHÔNG BỊ CHỒNG DẤU (LINE-HEIGHT & PADDING RỘNG RÃI) -->
-          <div class="relative z-10 w-full max-w-4xl mx-auto pt-3 sm:pt-6 md:pt-8 lg:pt-9">
-            <h1 class="font-heading tracking-normal flex flex-col items-center justify-center gap-3.5 sm:gap-5 md:gap-6 text-center mt-1 sm:mt-2 md:mt-3">
+          <!-- PHẦN 1: KHỐI TEXT TIÊU ĐỀ CANH GIỮA TOÀN DIỆN: CHIA ĐỀU KHOẢNG CÁCH 3 DÒNG, KHÔNG MẤT DẤU TIẾNG VIỆT -->
+          <div class="relative z-10 w-full max-w-4xl mx-auto pt-4 sm:pt-6 md:pt-8">
+            <h1 class="font-heading tracking-normal flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-7 text-center mt-1 sm:mt-2">
               
-              <!-- Dòng 1: DANH MỤC VẬT PHẨM NGUY HIỂM (Tách thành 2 dòng rõ rệt với khoảng cách thoáng đãng, không đè dấu) -->
-              <span class="block py-1 sm:py-2 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] leading-tight">
-                <span class="bg-gradient-to-r from-red-400 via-rose-300 to-amber-300 bg-clip-text text-transparent block mb-2 sm:mb-3 md:mb-4.5">DANH MỤC</span>
-                <span class="block text-white mt-1 sm:mt-2 md:mt-3 leading-snug sm:leading-normal">VẬT PHẨM NGUY HIỂM</span>
+              <!-- Dòng 1: DANH MỤC MỚI NHẤT -->
+              <span class="block text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] leading-relaxed py-1 sm:py-1.5">
+                DANH MỤC MỚI NHẤT
+              </span>
+              <span class="block text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] leading-relaxed py-1 sm:py-1.5">
+                NHỮNG VẬT BỊ CẤM
               </span>
 
-              <!-- Dòng 2: MỚI NHẤT (Cho to hơn hẳn, thiết kế nhãn 3D viền neon nổi bật rực rỡ) -->
-              <div class="my-0.5 sm:my-1">
-                <span class="inline-flex items-center justify-center px-5 sm:px-8 md:px-9 py-1.5 sm:py-2 md:py-2.5 rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 border-2 border-red-300 text-base sm:text-xl md:text-3xl font-black text-white tracking-widest uppercase shadow-xl shadow-red-900/60 ring-4 ring-red-500/30">
-                  MỚI NHẤT
-                </span>
-              </div>
+              
 
-              <!-- Dòng 3: HÀNH KHÁCH ĐI MÁY BAY CẦN BIẾT (Canh giữa, khoảng cách thoáng đãng, sắc vàng hổ phách) -->
-              <span class="block py-1 sm:py-2 text-sm sm:text-xl md:text-3xl lg:text-4xl font-extrabold uppercase text-amber-300 tracking-wide drop-shadow-[0_2px_16px_rgba(245,158,11,0.65)] leading-relaxed md:leading-loose">
-                HÀNH KHÁCH ĐI MÁY BAY CẦN BIẾT
+              <!-- Dòng 3: ĐI MÁY BAY PHẢI BIẾT -->
+              <span class="block text-base sm:text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase text-amber-300 tracking-wide drop-shadow-[0_2px_16px_rgba(245,158,11,0.65)] leading-relaxed py-1 sm:py-1.5">
+                ĐI MÁY BAY PHẢI BIẾT
               </span>
 
             </h1>
@@ -895,16 +894,6 @@
         <!-- CĂN CỨ VĂN BẢN XUẤT NHẬP CẢNH 100% NGUYÊN BẢN (ĐƯỢC ĐỔI LÊN TRÊN) -->
         <div class="text-base sm:text-lg text-slate-800 italic bg-white/95 border-l-8 border-sky-500 px-6 py-5 rounded-r-2xl shadow-md text-left max-w-4xl mx-auto leading-relaxed mt-8 mb-6">
           Theo Công văn số 25655/QLXNC-TTANHKQG ngày 21-9-2026 của Cục Quản lý xuất nhập cảnh, hành khách cần đặc biệt lưu ý các nhóm vật phẩm sau:
-        </div>
-
-        <!-- THÔNG ĐIỆP MỞ ĐẦU 100% NGUYÊN BẢN (ĐƯỢC ĐỔI XUỐNG DƯỚI) -->
-        <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-sky-50 to-blue-50 border-2 border-sky-300 shadow-xl mb-8 text-left sm:text-center">
-          <p class="text-xl sm:text-2xl font-black text-sky-900 mb-4 flex items-center justify-center gap-3">
-            An toàn hàng không bắt đầu từ những vật dụng hành khách mang theo!
-          </p>
-          <p class="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-4xl mx-auto">
-            Nhằm bảo đảm an ninh, an toàn cho hành khách, tổ bay, máy bay và hoạt động khai thác hàng không dân dụng, pháp luật quy định cụ thể các loại vật phẩm nguy hiểm bị cấm hoặc hạn chế mang vào khu vực hạn chế, mang lên máy bay.
-          </p>
         </div>
 
       </div>
@@ -1095,18 +1084,11 @@
       <div class="max-w-5xl mx-auto mb-10 reveal-card text-center">
         <!-- TIÊU ĐỀ H2 PHẦN 2: NỀN CAM VÀNG CẢNH BÁO ĐẬM, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
         <h2 class="themed-heading-banner heading-banner-amber kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase mb-6">
-          MỘT SỐ VẬT PHẨM NGUY HIỂM THUỘC DIỆN HẠN CHẾ CHỈ ĐƯỢC VẬN CHUYỂN KHI ĐÁP ỨNG ĐIỀU KIỆN
+          NHÓM VẬT PHẨM ĐƯỢC VẬN CHUYỂN TRONG NHỮNG ĐIỀU KIỆN NHẤT ĐỊNH
+
         </h2>
 
-        <!-- NỘI DUNG MỞ ĐẦU PHẦN 2 CHÍNH XÁC NGUYÊN BẢN -->
-        <div class="p-8 rounded-3xl bg-white/95 border-2 border-amber-300 shadow-lg text-slate-800 text-base sm:text-lg leading-relaxed mt-6">
-          <p class="mb-4">
-            Không phải mọi vật phẩm nguy hiểm đều bị cấm tuyệt đối. Một số vật phẩm có thể được vận chuyển trong những điều kiện nhất định, tùy thuộc vào tính chất vật phẩm, vị trí vận chuyển, cách đóng gói, số lượng và yêu cầu của người khai thác máy bay.
-          </p>
-          <p class="font-extrabold text-amber-800 text-lg">
-            Danh mục quy định các nhóm như:
-          </p>
-        </div>
+        
       </div>
 
       <!-- TÁI CẤU TRÚC RADIAL CIRCULAR INFOGRAPHIC (THEO HÌNH CUNG CẤP) -->
@@ -1117,9 +1099,9 @@
           <!-- Vòng quỹ đạo đứt đoạn -->
           <div class="radial-orbit-ring"></div>
 
-          <!-- VÒNG TRÒN TO Ở GIỮA TO HƠN, TONE VÀNG CAM CẢNH BÁO, CHỈ HIỂN THỊ NỘI DUNG, SIZE CHỮ TĂNG HƠN 1 SIZE -->
+          <!-- VÒNG TRÒN TO Ở GIỮA: NỀN TRẮNG SÁNG, NỔI BẬT CHỮ ĐẬM SẮC NÉT -->
           <div id="radialDetailHub" class="radial-center-circle">
-            <p id="radialHubDesc" class="radial-content-fade text-base sm:text-lg lg:text-xl text-white font-extrabold leading-relaxed overflow-y-auto max-h-64 px-2 py-1 text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+            <p id="radialHubDesc" class="radial-content-fade text-base sm:text-lg lg:text-xl text-amber-950 font-black leading-relaxed overflow-y-auto max-h-64 px-2 py-1 text-center">
               Pin lithium, thiết bị điện tử sử dụng pin lithium hoặc pin kim loại lithium
             </p>
           </div>
@@ -1240,8 +1222,8 @@
 
         </div>
 
-        <!-- PHẦN DƯỚI: BỎ NHÓM, CHỈ ICON TO VÀ CHỮ NỘI DUNG KẾ BÊN, TONE VÀNG CAM CẢNH BÁO, SIZE CHỮ TĂNG HƠN 1 SIZE -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:mt-12">
+        <!-- PHẦN DƯỚI: ẨN TRÊN DESKTOP (VÌ ĐÃ CÓ RADIAL WHEEL), CHỈ HIỂN THỊ TRÊN MOBI -->
+        <div class="grid grid-cols-1 gap-5 md:hidden">
           
           <!-- Thẻ 1 -->
           <div class="infographic-box searchable-item p-6 rounded-2xl border-2 border-amber-200 bg-white/95 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer transition-all flex items-center gap-4" onclick="selectRadialItem(1)" data-keywords="pin lithium thiết bị điện tử pin kim loại lithium sạc dự phòng điện thoại">
@@ -1343,20 +1325,15 @@
     <section id="pin-lithium" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-emerald-200">
       
       <div class="max-w-5xl mx-auto mb-10 reveal-card text-center">
-        <!-- TIÊU ĐỀ H2 PHẦN 3: NỀN XANH LÁ ĐẬM THEO MÀU CHỦ ĐỀ, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
-        <h2 class="themed-heading-banner heading-banner-emerald kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase mb-6">
-          ĐẶC BIỆT LƯU Ý ĐỐI VỚI THIẾT BỊ ĐIỆN TỬ VÀ PIN LITHIUM
+        <!-- TIÊU ĐỀ H2 PHẦN 3: NỀN XANH LÁ ĐẬM THEO MÀU CHỦ ĐỀ, [LƯU Ý ĐẶC BIỆT] CHỮ TO, CÂU HƯỚNG DẪN CHỮ NHỎ PHÍA DƯỚI -->
+        <h2 class="themed-heading-banner heading-banner-emerald flex flex-col items-center justify-center text-center gap-3 sm:gap-4 mb-6">
+          <span class="block text-2xl sm:text-4xl lg:text-5xl font-black tracking-wider uppercase text-white drop-shadow-md">
+            LƯU Ý ĐẶC BIỆT
+          </span>
+          <span class="block text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-normal text-emerald-100 normal-case leading-relaxed max-w-4xl opacity-95">
+            Đối với thiết bị điện tử cầm tay (bao gồm thiết bị y tế) có chứa pin lithium-ion hoặc pin kim loại lithium, trước khi ra sân bay, chúng ta nên:
+          </span>
         </h2>
-
-        <!-- NỘI DUNG MỞ ĐẦU PHẦN 3 CHÍNH XÁC NGUYÊN BẢN - TONE XANH LÁ -->
-        <div class="p-8 rounded-3xl bg-white/95 border-2 border-emerald-300 shadow-lg text-slate-800 text-base sm:text-lg leading-relaxed mt-6">
-          <p class="mb-4">
-            Các thiết bị điện tử cầm tay, bao gồm một số thiết bị y tế phục vụ nhu cầu cá nhân có chứa pin lithium-ion hoặc pin kim loại lithium, thuộc nhóm vật phẩm được quy định điều kiện vận chuyển.
-          </p>
-          <p class="font-black text-emerald-800 text-lg">
-            Vì vậy, trước khi ra sân bay, hành khách nên:
-          </p>
-        </div>
       </div>
 
       <!-- 4 HÀNH ĐỘNG KHUYẾN NGHỊ: CHỈ SỬ DỤNG NỘI DUNG CHÍNH, BỎ THANH TRẮNG Ở GIỮA, TƯƠNG THÍCH MỌI THIẾT BỊ, TONE MÀU XANH LÁ CHỦ ĐẠO -->
@@ -1587,26 +1564,14 @@
     <!-- ============================================================== -->
     <!-- PHẦN 5: THÔNG ĐIỆP KẾT THÚC VÀ TRÁCH NHIỆM CHUNG               -->
     <!-- ============================================================== -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-sky-200">
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-sky-200">
       
       <div class="max-w-5xl mx-auto text-center reveal-card">
         
-        
-        <!-- TIÊU ĐỀ H3 KẾT THÚC: NỀN XANH DƯƠNG ĐẬM, CHỮ TRẮNG, CANH GIỮA, FONT MONTSERRAT NỔI BẬT -->
-        <h3 class="themed-heading-banner heading-banner-blue kinetic-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide uppercase mb-8">
-          AN NINH HÀNG KHÔNG LÀ TRÁCH NHIỆM CỦA MỖI CHÚNG TA!
-        </h3>
-
-        <!-- NỘI DUNG KẾT THÚC CHÍNH XÁC NGUYÊN BẢN -->
-        <div class="p-8 sm:p-12 rounded-3xl bg-white/95 border-2 border-sky-300 shadow-2xl mb-8 text-left sm:text-center">
-          <p class="text-lg sm:text-2xl text-slate-800 leading-relaxed mb-8 font-semibold">
-            Một vật phẩm tưởng như bình thường nhưng nếu không được kiểm soát đúng quy định có thể trở thành nguy cơ đối với an toàn hành khách, tổ bay, máy bay và toàn bộ hoạt động hàng không.
-          </p>
-
-          <div class="h-1 w-24 mx-auto bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mb-8"></div>
-
-          <p class="text-lg sm:text-2xl font-black text-sky-800 leading-relaxed">
-            Chủ động kiểm tra – Tuân thủ quy định – Hợp tác với lực lượng kiểm soát an ninh hàng không chính là góp phần xây dựng môi trường hàng không an toàn, văn minh và không có vật phẩm nguy hiểm trái quy định.
+        <!-- THÔNG ĐIỆP CUỐI BÀI -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-sky-50 to-blue-50 border-2 border-sky-300 shadow-xl mb-4 text-center max-w-4xl mx-auto">
+          <p class="text-xl sm:text-2xl font-black text-sky-900 flex items-center justify-center gap-3">
+            An toàn hàng không bắt đầu từ những vật dụng hành khách mang theo!
           </p>
         </div>
 
